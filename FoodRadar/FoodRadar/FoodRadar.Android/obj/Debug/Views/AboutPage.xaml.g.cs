@@ -13,7 +13,8 @@
 namespace FoodRadar.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar\\Views\\AboutPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodR" +
+        "adar\\Views\\AboutPage.xaml")]
     public partial class AboutPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -8,18 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FoodRadar.Droid.Views.ItemDetailPage.xaml", "Views/ItemDetailPage.xaml", typeof(global::FoodRadar.Views.ItemDetailPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FoodRadar.iOS.Views.MainPage.xaml", "Views/MainPage.xaml", typeof(global::FoodRadar.Views.MainPage))]
 
 namespace FoodRadar.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodR" +
-        "adar\\Views\\ItemDetailPage.xaml")]
-    public partial class ItemDetailPage : global::Xamarin.Forms.ContentPage {
+        "adar\\Views\\MainPage.xaml")]
+    public partial class MainPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ItemDetailPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
         }
     }
 }

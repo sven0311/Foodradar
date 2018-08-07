@@ -745,11 +745,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.Android\\FoodRadar.Android.csproj",
+      "projectUniqueName": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.Android\\FoodRadar.Android.csproj",
       "projectName": "FoodRadar.Android",
-      "projectPath": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.Android\\FoodRadar.Android.csproj",
+      "projectPath": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.Android\\FoodRadar.Android.csproj",
       "packagesPath": "C:\\Users\\svena\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.Android\\obj\\",
+      "outputPath": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

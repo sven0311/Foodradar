@@ -663,11 +663,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\FoodRadar.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\FoodRadar.iOS.csproj",
       "projectName": "FoodRadar.iOS",
-      "projectPath": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\FoodRadar.iOS.csproj",
+      "projectPath": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\FoodRadar.iOS.csproj",
       "packagesPath": "C:\\Users\\svena\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\obj\\",
+      "outputPath": "C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodRadar.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

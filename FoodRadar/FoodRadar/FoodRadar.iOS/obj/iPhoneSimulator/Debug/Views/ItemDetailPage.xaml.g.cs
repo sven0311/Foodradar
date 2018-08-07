@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FoodRadar.Droid.Views.ItemDetailPage.xaml", "Views/ItemDetailPage.xaml", typeof(global::FoodRadar.Views.ItemDetailPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FoodRadar.iOS.Views.ItemDetailPage.xaml", "Views/ItemDetailPage.xaml", typeof(global::FoodRadar.Views.ItemDetailPage))]
 
 namespace FoodRadar.Views {
     

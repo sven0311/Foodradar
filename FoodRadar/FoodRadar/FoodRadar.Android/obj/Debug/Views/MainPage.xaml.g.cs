@@ -13,7 +13,8 @@
 namespace FoodRadar.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\svena\\source\\repos\\FoodRadar\\FoodRadar\\FoodRadar\\Views\\MainPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\svena\\Documents\\MobileAppDevelopment\\Foodradar\\FoodRadar\\FoodRadar\\FoodR" +
+        "adar\\Views\\MainPage.xaml")]
     public partial class MainPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
