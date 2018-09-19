@@ -157,4 +157,13 @@
       <Name>FoodRadar</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\round_search_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\round_map_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\round_person_black_24dp.png" />
+  </ItemGroup>
 </Project>
