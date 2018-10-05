@@ -4,15 +4,15 @@
              x:Class="FoodRadar.Search"
              Title="Search" Icon="round_search_black_18.dp.png">
     <ContentPage.Content>
-        <StackLayout Spacing="10" Margin="40, 20">
-            <Label Text="What do you feel like?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="Meal or Category:" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
-            <Entry Placeholder="..."></Entry>
-            <Label Text="Distance:" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
-            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f"/>
-            <Label Text="Price:" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
-            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f"/>
-            <Button Text="Search" BackgroundColor="#e21f4f" TextColor="White"/>
+        <StackLayout Spacing="0" Margin="40, 30">
+            <Label Text="What do you feel like?" FontSize="Large"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Meal or Category:" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Entry Placeholder="..." Margin="0, 0,0,20"></Entry>
+            <Label Text="Distance:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+            <Label Text="Price:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+            <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
