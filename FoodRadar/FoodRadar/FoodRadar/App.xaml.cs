@@ -11,7 +11,8 @@ namespace FoodRadar
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            // MainPage = new NavigationPage(new MainPage());
+            Application.Current.MainPage = new MainPage();
         }
 
         protected override void OnStart()
