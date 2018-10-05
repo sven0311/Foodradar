@@ -5,7 +5,14 @@
              Title="Search" Icon="round_search_black_18.dp.png">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Search Page"/>
+            <Label Text="What do you feel like?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Meal or Category" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="Enter text here"></Entry>
+            <Label Text="Distance:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Slider  Minimum = "0" Maximum="100"/>
+            <Label Text="Price:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Slider  Minimum = "0" Maximum="100"/>
+            <Button Text="Search"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
