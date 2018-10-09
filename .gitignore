@@ -187,3 +187,6 @@ FakesAssemblies/
 /packages
 
 *.userprefs
+
+# sqlite3 file which raises always a conflict
+*.ide-shm
