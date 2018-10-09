@@ -195,4 +195,4 @@ FakesAssemblies/
 *.ide-shm
 *.ide-wal
 *.ide
-
+/.vs
