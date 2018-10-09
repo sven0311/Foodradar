@@ -103,13 +103,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\round_search_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\round_map_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\round_map_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable\round_person_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\round_person_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\round_search_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

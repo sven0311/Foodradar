@@ -3195,13 +3195,13 @@ namespace FoodRadar.Droid
 			public const int notify_panel_notification_icon_bg = 2130837823;
 			
 			// aapt resource value: 0x7f020140
-			public const int round_map_black_18dp = 2130837824;
+			public const int round_map_white_24dp = 2130837824;
 			
 			// aapt resource value: 0x7f020141
-			public const int round_person_black_24dp = 2130837825;
+			public const int round_person_white_24dp = 2130837825;
 			
 			// aapt resource value: 0x7f020142
-			public const int round_search_black_18dp = 2130837826;
+			public const int round_search_white_24dp = 2130837826;
 			
 			// aapt resource value: 0x7f020143
 			public const int tooltip_frame_dark = 2130837827;
