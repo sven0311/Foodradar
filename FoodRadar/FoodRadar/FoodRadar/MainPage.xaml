@@ -6,7 +6,7 @@
              BarBackgroundColor="#e21f4f">
 
     <local:Search/>
-    <local:Map/>
+    <local:MapPage/>
     <local:Profile/>
 
 </TabbedPage>
