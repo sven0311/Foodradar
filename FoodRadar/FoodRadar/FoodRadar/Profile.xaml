@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FoodRadar.ViewModels"
              x:Class="FoodRadar.Profile"
-             Title="Profile" Icon="round_person_black_24dp.png">
+             Title="Profile" Icon="round_person_white_24dp.png">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.BindingContext>

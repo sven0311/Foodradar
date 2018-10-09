@@ -2,10 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodRadar.Search"
-             Title="Search" Icon="round_search_black_18.dp.png">
+             Title="Search" Icon="round_search_white_24dp.png">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Search Page"/>
+        <StackLayout Spacing="0" Margin="40, 30">
+            <Label Text="What do you feel like?" FontSize="Large"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Meal or Category:" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Entry Placeholder="..." Margin="0, 0,0,20"></Entry>
+            <Label Text="Distance:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+            <Label Text="Price:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+            <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+            <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
