@@ -14,7 +14,7 @@ namespace FoodRadar
 	{
 		public Profile ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }

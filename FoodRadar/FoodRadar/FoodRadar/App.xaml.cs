@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodRadar.DB;
+using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +9,26 @@ namespace FoodRadar
 {
     public partial class App : Application
     {
+
+
+        static FoodRadarDB database;
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+        }
+
+        public static FoodRadarDB Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new FoodRadarDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FoodRadarDB.db3"));
+                }
+                return database;
+            }
         }
 
         protected override void OnStart()
