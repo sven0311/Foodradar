@@ -186,8 +186,15 @@ FakesAssemblies/
 /Components
 /packages
 
+/Assignment 1
+/Assignment2
+
 *.userprefs
 
 # sqlite3 file which raises always a conflict
 *.ide-shm
+
 *.ide-wal
+*.ide
+/.vs
+
