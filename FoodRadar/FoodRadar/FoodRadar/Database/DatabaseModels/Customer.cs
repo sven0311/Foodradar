@@ -7,7 +7,7 @@ using System.ComponentModel;
 namespace FoodRadar.Database.DatabaseModels
 {
     [Table("Customers")]
-    class Customer
+    public class Customer
     {
         [PrimaryKey, AutoIncrement, Column("Id")]
         public int Id { get; set; }
@@ -17,6 +17,8 @@ namespace FoodRadar.Database.DatabaseModels
 
         [Column("LastName")]
         public string lastName { get; set; }
+
+        public string password { get; set;  }
 
         //add profile picture to model
     }

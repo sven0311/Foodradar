@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace FoodRadar.Database.DatabaseModels
 {
-    class Cuisine
+    public class Cuisine
     {
 
         [PrimaryKey, AutoIncrement, Column("Id")]
