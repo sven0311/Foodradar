@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="FoodRadar.MapPage"
     Title="Map" Icon="round_map_white_24dp.png">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+            <maps:Map WidthRequest="320" HeightRequest="200"
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Hybrid"
+        />
+        </StackLayout>
+    </ContentPage.Content>
     <!--<ContentPage.Content>
         <StackLayout>
             <Label Text="Map Page"
@@ -10,7 +20,7 @@
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>-->
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3.333*"></RowDefinition>
             <RowDefinition Height="3.333*"></RowDefinition>
@@ -21,5 +31,5 @@
             <Label x:Name="txtLong"></Label>
             <Button x:Name="btnGetLocation" Text="Get Location"></Button>
         </StackLayout>
-    </Grid>
+    </Grid>-->
 </ContentPage>
