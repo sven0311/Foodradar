@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
 
 namespace FoodRadar.Droid
 {
@@ -22,6 +23,14 @@ namespace FoodRadar.Droid
             //initialize map
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
