@@ -3,11 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodRadar.MapPage"
     Title="Map" Icon="round_map_white_24dp.png">
-    <ContentPage.Content>
+    <!--<ContentPage.Content>
         <StackLayout>
             <Label Text="Map Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3.333*"></RowDefinition>
+            <RowDefinition Height="3.333*"></RowDefinition>
+            <RowDefinition Height="3.333*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="1">
+            <Label x:Name="txtLat"></Label>
+            <Label x:Name="txtLong"></Label>
+            <Button x:Name="btnGetLocation" Text="Get Location"></Button>
+        </StackLayout>
+    </Grid>
 </ContentPage>
