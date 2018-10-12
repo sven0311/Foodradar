@@ -190,3 +190,4 @@ FakesAssemblies/
 
 # sqlite3 file which raises always a conflict
 *.ide-shm
+*.ide-wal
