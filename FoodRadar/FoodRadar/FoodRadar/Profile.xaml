@@ -9,6 +9,7 @@
             <StackLayout.BindingContext>
                 <local:ProfileViewModel />
             </StackLayout.BindingContext>
+            <Image Source="https://static.thenounproject.com/png/630729-200.png" />
             <Label Text="{Binding GetFirstName}" />
             <Label Text="Profile Page"
                 VerticalOptions="CenterAndExpand" 
