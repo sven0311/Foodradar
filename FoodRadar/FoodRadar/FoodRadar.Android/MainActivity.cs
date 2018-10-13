@@ -8,6 +8,10 @@ using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using System.Threading.Tasks;
+using Android;
+using Android.Support.Design.Widget;
+using Android.Support.V4.App;
 
 namespace FoodRadar.Droid
 {

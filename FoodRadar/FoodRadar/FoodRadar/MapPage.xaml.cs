@@ -32,6 +32,7 @@ namespace FoodRadar
             InitializeComponent();
             btnGetLocation.Clicked += BtnGetLocation_Clicked;
 
+            //await RetreiveLocation();
         }
 
         private async void BtnGetLocation_Clicked(object sender, EventArgs e)

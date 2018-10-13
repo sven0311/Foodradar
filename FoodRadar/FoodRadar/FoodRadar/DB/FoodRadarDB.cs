@@ -36,6 +36,7 @@ namespace FoodRadar.DB
         {
             return database.Table<Customer>().ToListAsync();
         }
+        
         /*
          public Task<List<TodoItem>> GetItemsNotDoneAsync()
          {
