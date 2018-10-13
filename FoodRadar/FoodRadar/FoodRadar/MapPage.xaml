@@ -29,7 +29,6 @@
         <StackLayout Grid.Row="0" VerticalOptions="StartAndExpand" Padding="30">
             <maps:Map WidthRequest="320" HeightRequest="200"
              x:Name="MyMap"
-             IsShowingUser="True"
              MapType="Street"
              />
         </StackLayout>
