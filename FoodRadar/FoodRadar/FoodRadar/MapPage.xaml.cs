@@ -47,9 +47,6 @@ namespace FoodRadar
 
             var position = await locator.GetPositionAsync();
 
-            txtLat.Text = "Latitude: " + position.Latitude.ToString();
-            txtLong.Text = "Longitude: " + position.Longitude.ToString();
-
             MyMap.MoveToRegion(
                 MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
                 Distance.FromMiles(1)));    
