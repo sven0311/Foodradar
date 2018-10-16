@@ -27,5 +27,24 @@ namespace FoodRadar.ViewModels
                 List<Customer> customers = App.Database.GetItemsAsync().Result;
                 return customers[0].FirstName; }
         }
+
+        public string GetLastName
+        {
+
+            get
+            {
+                List<Customer> customers = App.Database.GetItemsAsync().Result;
+                return customers[0].LastName;
+            }
+        }
+
+        public string GetFullNameWithLineBreak
+        {
+
+            get
+            {
+                return GetFirstName + "\r\n" + GetLastName;
+            }
+        }
     }
 }
