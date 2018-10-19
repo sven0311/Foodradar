@@ -1,6 +1,8 @@
+
 ﻿using FoodRadar.DB;
-using System;
 using System.IO;
+﻿using App;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,8 +18,7 @@ namespace FoodRadar
         {
             InitializeComponent();
 
-            // MainPage = new NavigationPage(new MainPage());
-            Application.Current.MainPage = new MainPage();
+            MainPage = new Intro();
         }
 
         public static FoodRadarDB Database
@@ -30,6 +31,8 @@ namespace FoodRadar
                 }
                 return database;
             }
+            
+
         }
 
         protected override void OnStart()

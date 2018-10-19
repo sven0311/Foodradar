@@ -1,13 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="FoodRadar.MapPage"
     Title="Map" Icon="round_map_white_24dp.png">
-    <ContentPage.Content>
+    <!--<ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+            <maps:Map WidthRequest="320" HeightRequest="200"
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Hybrid"
+        />
+        </StackLayout>
+    </ContentPage.Content>-->
+    <!--<ContentPage.Content>
         <StackLayout>
             <Label Text="Map Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
+
+    <RelativeLayout>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                     
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+        RelativeLayout.HeightConstraint="{ConstraintExpression      Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            <maps:Map
+                 x:Name="MyMap"
+                 MapType="Street"
+                 />
+        </StackLayout>
+        <Button x:Name="btnGetLocation" Text="O" Margin="0" Padding ="0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Y,Factor=1,Constant=160}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=1,Constant=200}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.2,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.2,Constant=0}"
+                ></Button>
+    </RelativeLayout>
+    
 </ContentPage>
