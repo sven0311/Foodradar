@@ -1,4 +1,4 @@
-﻿using FoodRadar.DB.DataModels;
+﻿using FoodRadar.Database.DatabaseModels;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace FoodRadar.DB
 
         public Task<int> SaveItemAsync(Customer item)
         {
-            if (item.ID != 0)
+            if (item.Id != 0)
             {
                 return database.UpdateAsync(item);
             }
@@ -29,14 +29,31 @@ namespace FoodRadar.DB
         }
         public Task<Customer> GetItemAsync(int id)
         {
-            return database.Table<Customer>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
      
         public Task<List<Customer>> GetItemsAsync()
         {
             return database.Table<Customer>().ToListAsync();
         }
-        
+
+        public Task<int> SaveRestaurant(Restaurant item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<List<Restaurant>> GetRestaurants()
+        {
+            return database.Table<Restaurant>().ToListAsync();
+        }
+
         /*
          public Task<List<TodoItem>> GetItemsNotDoneAsync()
          {

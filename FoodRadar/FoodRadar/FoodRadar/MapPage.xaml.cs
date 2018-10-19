@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
+using FoodRadar.Database.DatabaseModels;
 
 namespace FoodRadar
 {
@@ -40,16 +41,60 @@ namespace FoodRadar
             await RetreiveLocation();
         }
 
+        private void setPins()
+        {
+            setPinsOnMap(App.Database.GetRestaurants().Result);
+        }
+
+        private async void setPinsOnMap(List<Restaurant> rest)
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+            var myposition = await locator.GetPositionAsync();
+
+            foreach (Restaurant r in rest)
+            {
+                var position = new Position(r.lat, r.lon);
+
+                var pos1 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                {
+                    Latitude = r.lat,
+                    Longitude = r.lon
+                };
+                var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                {
+                    Latitude = myposition.Longitude,
+                    Longitude = myposition.Latitude
+                };
+
+                var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(pos1, pos2);
+
+                //maybe adjust 1000
+                if (distance > 1000)
+                    continue;
+
+                var pin = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = position,
+                    Label = r.name,
+                    Address = r.address
+                };
+                MyMap.Pins.Add(pin);
+            }
+        }
+
         private async Task RetreiveLocation()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
-
+            
             var position = await locator.GetPositionAsync();
 
             MyMap.MoveToRegion(
                 MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                Distance.FromMiles(1)));    
+                Distance.FromMiles(1)));  
         }
+
     }
 }

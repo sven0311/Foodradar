@@ -1,5 +1,5 @@
-﻿using FoodRadar.DB;
-using FoodRadar.DB.DataModels;
+﻿using FoodRadar.Database.DatabaseModels;
+using FoodRadar.DB;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,8 +14,8 @@ namespace FoodRadar.ViewModels
 
         public ProfileViewModel()
         {
-            customer.FirstName = "Sigurdur";
-            customer.LastName = "Jonsson";
+            customer.firstName = "Sigurdur";
+            customer.lastName = "Jonsson";
             App.Database.SaveItemAsync(customer);
         }
 
@@ -25,7 +25,7 @@ namespace FoodRadar.ViewModels
             get
             {
                 List<Customer> customers = App.Database.GetItemsAsync().Result;
-                return customers[0].FirstName; }
+                return customers[0].firstName; }
         }
 
         public string GetLastName
@@ -34,7 +34,7 @@ namespace FoodRadar.ViewModels
             get
             {
                 List<Customer> customers = App.Database.GetItemsAsync().Result;
-                return customers[0].LastName;
+                return customers[0].lastName;
             }
         }
 

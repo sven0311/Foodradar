@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace FoodRadar.Database.DatabaseModels
 {
-    class Restaurant
+    public class Restaurant
     {
 
         [PrimaryKey, AutoIncrement, Column("Id")]
@@ -19,10 +19,10 @@ namespace FoodRadar.Database.DatabaseModels
         public string desc { get; set; }
 
         [Column("lat")]
-        public float lat { get; set; }
+        public double lat { get; set; }
 
         [Column("lon")]
-        public float lon { get; set; }
+        public double lon { get; set; }
 
         [Column("Address")]
         public string address { get; set; }
@@ -37,7 +37,6 @@ namespace FoodRadar.Database.DatabaseModels
 
         [Column("URL")]
         public string url { get; set; }
-
 
     }
 }
