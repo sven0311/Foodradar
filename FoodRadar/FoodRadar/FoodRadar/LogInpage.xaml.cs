@@ -32,16 +32,16 @@ namespace FoodRadar
         private async void Button_LogIn(Object sender, EventArgs e)
         {
             //await Navigation.PushAsync(new Profile());
-            Customer cust = App.Database.getPassword(email);
-            if (cust == null)
-            {
-                //pop up message (email not found)
-            }
-            if (cust.password == password)
-            {
-                loggedIn = true;
-                customer = cust;
-            }
+            //Customer cust = App.Database.getPassword(email);
+            //if (cust == null)
+            //{
+            //    //pop up message (email not found)
+            //}
+            //if (cust.password == password)
+            //{
+            //    loggedIn = true;
+            //    customer = cust;
+            //}
         }
 
         private String email;
