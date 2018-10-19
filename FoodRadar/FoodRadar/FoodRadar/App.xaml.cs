@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,8 @@ namespace FoodRadar
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new Intro();
+
         }
 
         protected override void OnStart()
