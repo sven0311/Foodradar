@@ -23,7 +23,7 @@
                 <Image Source="https://static.thenounproject.com/png/630729-200.png" Grid.Row="0" Grid.Column="0" />
                 <Label Text="{Binding GetFullNameWithLineBreak}" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
             </Grid>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
