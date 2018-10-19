@@ -21,12 +21,22 @@
         </StackLayout>
     </ContentPage.Content>-->
 
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <maps:Map WidthRequest="320" HeightRequest="200"
-             x:Name="MyMap"
-             MapType="Street"
-             />
-        <Button x:Name="btnGetLocation" Text="Get Location" Margin="0"></Button>
-    </StackLayout>
-
+    <RelativeLayout>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                     
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+        RelativeLayout.HeightConstraint="{ConstraintExpression      Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            <maps:Map
+                 x:Name="MyMap"
+                 MapType="Street"
+                 />
+        </StackLayout>
+        <Button x:Name="btnGetLocation" Text="O" Margin="0" Padding ="0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Y,Factor=1,Constant=160}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=1,Constant=200}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.2,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.2,Constant=0}"
+                ></Button>
+    </RelativeLayout>
+    
 </ContentPage>
