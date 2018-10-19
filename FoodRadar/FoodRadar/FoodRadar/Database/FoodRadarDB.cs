@@ -39,7 +39,7 @@ namespace FoodRadar.DB
 
         public Task<List<Restaurant>> GetRestaurants()
         {
-            return database.Table<Restaurant>.ToListAsync();
+            return database.Table<Restaurant>().ToListAsync();
         }
 
         /*

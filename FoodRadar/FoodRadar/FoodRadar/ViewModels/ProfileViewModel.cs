@@ -34,7 +34,7 @@ namespace FoodRadar.ViewModels
             get
             {
                 List<Customer> customers = App.Database.GetItemsAsync().Result;
-                return customers[0].LastName;
+                return customers[0].lastName;
             }
         }
 

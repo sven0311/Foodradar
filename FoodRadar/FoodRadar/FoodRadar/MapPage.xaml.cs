@@ -43,10 +43,10 @@ namespace FoodRadar
 
         private void setPins()
         {
-            //App.Database
+            setPinsOnMap(App.Database.GetRestaurants().Result);
         }
 
-        private void setPinsOnMap(Restaurant[] rest)
+        private void setPinsOnMap(List<Restaurant> rest)
         {
             foreach (Restaurant r in rest)
             {
