@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
+using FoodRadar.Database.DatabaseModels;
 
 namespace FoodRadar
 {
@@ -40,19 +41,38 @@ namespace FoodRadar
             await RetreiveLocation();
         }
 
+        private void setPins()
+        {
+            setPinsOnMap(App.Database.GetRestaurants().Result);
+        }
+
+        private void setPinsOnMap(List<Restaurant> rest)
+        {
+            foreach (Restaurant r in rest)
+            {
+                var position = new Position(r.lat, r.lon);
+                var pin = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = position,
+                    Label = r.name,
+                    Address = r.address
+                };
+                MyMap.Pins.Add(pin);
+            }
+        }
+
         private async Task RetreiveLocation()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
-
+            
             var position = await locator.GetPositionAsync();
-
-            txtLat.Text = "Latitude: " + position.Latitude.ToString();
-            txtLong.Text = "Longitude: " + position.Longitude.ToString();
 
             MyMap.MoveToRegion(
                 MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                Distance.FromMiles(1)));    
+                Distance.FromMiles(1)));  
         }
+
     }
 }
