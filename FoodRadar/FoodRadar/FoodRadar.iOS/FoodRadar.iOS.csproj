@@ -93,7 +93,9 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,14 +154,11 @@
       <Version>1.5.231</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>3.2.0.871581</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\FoodRadar\FoodRadar.csproj">
-      <Project>{3AF5A578-0D1C-4D1D-B67E-605C9DE18EFB}</Project>
-      <Name>FoodRadar</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\round_search_black_18dp.png" />
   </ItemGroup>
@@ -168,5 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\round_person_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodRadar\FoodRadar.csproj">
+      <Project>{5c55db17-f551-483b-839f-306da51010ec}</Project>
+      <Name>FoodRadar</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
