@@ -14,6 +14,10 @@ namespace FoodRadar
         {
             InitializeComponent();
             loadDataInDb();
+            var pages = Children.GetEnumerator();
+            pages.MoveNext(); // First page
+            pages.MoveNext(); // Second page
+            CurrentPage = pages.Current;
         }
 
         private void loadDataInDb()
