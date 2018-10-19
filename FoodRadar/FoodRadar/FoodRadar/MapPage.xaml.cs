@@ -50,9 +50,6 @@ namespace FoodRadar
         {
             foreach (Restaurant r in rest)
             {
-               
-                lo
-
                 var position = new Position(r.lat, r.lon);
                 var pin = new Pin
                 {
@@ -74,7 +71,7 @@ namespace FoodRadar
 
             MyMap.MoveToRegion(
                 MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                Distance.FromMiles(1)));    
+                Distance.FromMiles(1)));  
         }
 
     }
