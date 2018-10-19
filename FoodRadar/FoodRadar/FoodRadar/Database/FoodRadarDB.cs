@@ -14,6 +14,7 @@ namespace FoodRadar.DB
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
+            database.CreateTableAsync<Restaurant>().Wait();
         }
 
         public Task<int> SaveItemAsync(Customer item)

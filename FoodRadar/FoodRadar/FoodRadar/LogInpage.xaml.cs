@@ -1,4 +1,5 @@
 ﻿using System;
+using App;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace FoodRadar
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new MainPage();
         }
 
         private async void Button_LogIn(Object sender, EventArgs e)

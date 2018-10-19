@@ -6,9 +6,6 @@
              BackgroundColor="White"
              NavigationPage.HasNavigationBar = "False">
 
-
-
-
     <ContentPage.Content>
         <Grid BackgroundColor= '#F9F8F9'>
 

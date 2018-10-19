@@ -13,7 +13,7 @@ namespace FoodRadar
         public MainPage()
         {
             InitializeComponent();
-            //loadDataInDb();
+            loadDataInDb();
         }
 
         private void loadDataInDb()
@@ -24,8 +24,8 @@ namespace FoodRadar
                 price = 2,
                 desc = "lovely local small cafe/bar",
                 address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
-                lat = -27.473210,
-                lon = 153.025800,
+                lon = -27.473210,
+                lat = 153.025800,
                 url = "https://beanbrisbane.com.au/"
             };
             App.Database.SaveRestaurant(res);
