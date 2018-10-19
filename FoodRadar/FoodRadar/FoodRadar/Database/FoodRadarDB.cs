@@ -55,6 +55,20 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().ToListAsync();
         }
 
+        public Customer getPassword(String email)
+        {
+            List<Customer> l = database.QueryAsync<Customer>("select * from Customer where email = " + email).Result;
+            if (l.Count == 0)
+            {
+                return null;
+            }
+            if (l.Count != 1)
+            {
+                throw new Exception("more than 1 user with same email");
+            }
+            return l[0];
+        }
+
         /*
          public Task<List<TodoItem>> GetItemsNotDoneAsync()
          {
