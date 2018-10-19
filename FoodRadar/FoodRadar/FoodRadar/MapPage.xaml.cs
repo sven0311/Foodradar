@@ -46,11 +46,33 @@ namespace FoodRadar
             setPinsOnMap(App.Database.GetRestaurants().Result);
         }
 
-        private void setPinsOnMap(List<Restaurant> rest)
+        private async void setPinsOnMap(List<Restaurant> rest)
         {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+            var myposition = await locator.GetPositionAsync();
+
             foreach (Restaurant r in rest)
             {
                 var position = new Position(r.lat, r.lon);
+
+                var pos1 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                {
+                    Latitude = r.lat,
+                    Longitude = r.lon
+                };
+                var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                {
+                    Latitude = myposition.Longitude,
+                    Longitude = myposition.Latitude
+                };
+
+                var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(pos1, pos2);
+
+                //maybe adjust 1000
+                if (distance > 1000)
+                    continue;
+
                 var pin = new Pin
                 {
                     Type = PinType.Place,

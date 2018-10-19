@@ -37,6 +37,18 @@ namespace FoodRadar.DB
             return database.Table<Customer>().ToListAsync();
         }
 
+        public Task<int> SaveRestaurant(Restaurant item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
         public Task<List<Restaurant>> GetRestaurants()
         {
             return database.Table<Restaurant>().ToListAsync();
