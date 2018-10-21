@@ -15,7 +15,6 @@ namespace FoodRadar
 		public Profile ()
 		{
 			InitializeComponent();
-            //maybe here
         }
 
         private async void Button_Details(object sender, EventArgs e)

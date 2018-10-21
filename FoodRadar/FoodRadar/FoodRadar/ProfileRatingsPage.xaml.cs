@@ -16,5 +16,10 @@ namespace FoodRadar
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void Button_BackToProfile(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new ProfileRatingsPage();
+        }
+    }
 }
