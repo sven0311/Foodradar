@@ -10,13 +10,18 @@ using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using FoodRadar.Database.DatabaseModels;
 
+
 namespace FoodRadar
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MapPage : ContentPage
 	{
-		public MapPage()
+        public MapPage()
 		{
+
+
+
+
             // var map = new Map(
             //MapSpan.FromCenterAndRadius(
             //        new Position(37, -122), Distance.FromMiles(0.3)))
@@ -32,17 +37,28 @@ namespace FoodRadar
 
             InitializeComponent();
             btnGetLocation.Clicked += BtnGetLocation_Clicked;
-
+            setPins();
             //await RetreiveLocation();
         }
 
         private async void BtnGetLocation_Clicked(object sender, EventArgs e)
         {
-            await RetreiveLocation();
+           // await RetreiveLocation();
         }
 
-        private void setPins(Xamarin.Forms.Labs.Services.Geolocation.Position pos2)
+        private async void setPins()
         {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+
+            var position = await locator.GetPositionAsync();
+
+            var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+            {
+                Latitude = position.Longitude,
+                Longitude = position.Latitude
+            };
+
             setPinsOnMap(App.Database.GetRestaurants().Result, pos2);
         }
 
@@ -74,28 +90,11 @@ namespace FoodRadar
                     Address = r.address
                 };
                 MyMap.Pins.Add(pin);
+                
             }
         }
 
-        private async Task RetreiveLocation()
-        {
-            var locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 20;
-            
-            var position = await locator.GetPositionAsync();
 
-            MyMap.MoveToRegion(
-                MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                Distance.FromMiles(1)));
-
-            var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
-            {
-                Latitude = position.Longitude,
-                Longitude = position.Latitude
-            };
-
-            setPins(pos2);
-        }
 
     }
 }

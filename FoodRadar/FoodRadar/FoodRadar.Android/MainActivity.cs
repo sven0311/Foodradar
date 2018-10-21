@@ -13,6 +13,9 @@ using Android;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 
+using Android.Support.V4.Content;
+using Xamarin.Forms.Maps;
+
 namespace FoodRadar.Droid
 {
 
@@ -30,6 +33,16 @@ namespace FoodRadar.Droid
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);    
             LoadApplication(new App());
+
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) != Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.AccessCoarseLocation, Manifest.Permission.AccessFineLocation }, 0);
+            }
+            else
+            {
+               
+                System.Diagnostics.Debug.WriteLine("Permission Granted!!!");
+            }
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

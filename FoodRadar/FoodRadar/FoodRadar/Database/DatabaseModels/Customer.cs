@@ -20,6 +20,8 @@ namespace FoodRadar.Database.DatabaseModels
 
         public string password { get; set;  }
 
+        public string email { get; set; }
+
         //add profile picture to model
     }
 }

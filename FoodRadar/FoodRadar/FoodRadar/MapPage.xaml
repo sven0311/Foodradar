@@ -29,6 +29,7 @@
             <maps:Map
                  x:Name="MyMap"
                  MapType="Street"
+                 IsShowingUser="True"
                  />
         </StackLayout>
         <Button x:Name="btnGetLocation" Text="O" Margin="0" Padding ="0"
