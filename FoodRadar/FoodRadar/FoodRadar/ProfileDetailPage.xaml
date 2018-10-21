@@ -7,6 +7,17 @@
             <Label Text="Profile Detail Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Placeholder Content</x:String>
+                        <x:String>Placeholder Content</x:String>
+                        <x:String>monopoly</x:String>
+                        <x:String>Placeholder Content</x:String>
+                        <x:String>Placeholder Content</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
