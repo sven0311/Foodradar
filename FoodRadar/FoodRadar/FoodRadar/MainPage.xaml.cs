@@ -12,7 +12,15 @@ namespace FoodRadar
     {
         public MainPage()
         {
-            InitializeComponent();
+            var navigationPage = new NavigationPage(new Profile());
+            navigationPage.Icon = "round_person_white_24dp.png";
+            navigationPage.Title = "Profile";
+
+            Children.Add(new Search());
+            Children.Add(new MapPage());
+            Children.Add(navigationPage);
+            
+            //InitializeComponent();
             loadDataInDb();
             var pages = Children.GetEnumerator();
             pages.MoveNext(); // First page
