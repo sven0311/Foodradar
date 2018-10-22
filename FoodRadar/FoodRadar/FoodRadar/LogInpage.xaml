@@ -80,7 +80,7 @@
             <StackLayout Grid.Row="2" BackgroundColor="#e3e3e3">
 
                 <Label HeightRequest="1" BackgroundColor="#e3e3e3"/>
-                <Button Text="Sign up for a new account"  BackgroundColor="#e3e3e3" VerticalOptions="Start" Grid.Row="2"/>
+                <Button Text="Sign up for a new account"  BackgroundColor="#e3e3e3" VerticalOptions="Start" Grid.Row="2" Clicked ="Button_SignUp" />
 
             </StackLayout>
 
