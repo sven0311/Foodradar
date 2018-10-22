@@ -1,13 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FoodRadar"
+             
+             xmlns:local="clr-namespace:FoodRadar.ViewModels"
              x:Class="FoodRadar.LogInpage"
              BackgroundColor="White"
              NavigationPage.HasNavigationBar = "False">
 
     <ContentPage.Content>
         <Grid BackgroundColor= '#F9F8F9'>
+            <Grid.BindingContext>
+                <local:LoginViewModel />
+            </Grid.BindingContext>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -17,7 +21,7 @@
             <!--Button Text="Log In With Facebook"  BackgroundColor="#F9F8F9" VerticalOptions="Start" Grid.Row="6" Clicked ="Button_Clicked"/!-->
             <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,10,0,0" Grid.Row="0">
                 <!--Label Text="SKIP     " HorizontalOptions="End" Grid.Row="1" Margin="0,10,0,0" FontSize="12"/!-->
-                <Button Text="SKIP"  BackgroundColor="#F9F8F9" VerticalOptions="Start" Grid.Row="1" Clicked ="Button_Clicked"/>
+                <Button Text="SKIP"  BackgroundColor="#F9F8F9" VerticalOptions="Start" Grid.Row="1" Command ="{Binding Button_Clicked}"/>
 
 
 
@@ -40,7 +44,7 @@
                 <Image Source="logo.png" HeightRequest="100" VerticalOptions="EndAndExpand"/>
                 <Entry Grid.Row="1" Placeholder="Email" PlaceholderColor="#bababa" FontSize="16" Text="{Binding Email}"/>
                 <Entry Grid.Row="2" Placeholder="Password" PlaceholderColor="#bababa" FontSize="16" Text="{Binding Password}"/>
-                <Button Text="Log In" BackgroundColor="Red" TextColor="White" BorderRadius = "5" BorderWidth = "2" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Clicked ="Button_LogIn"/>
+                <Button Text="Log In" BackgroundColor="Red" TextColor="White" BorderRadius = "5" BorderWidth = "2" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Command ="{Binding Button_LogIn}"/>
                 <Label Text="OR" HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0" FontSize="12"/>
 
 
