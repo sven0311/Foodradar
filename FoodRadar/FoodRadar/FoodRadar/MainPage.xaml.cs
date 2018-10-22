@@ -18,6 +18,7 @@ namespace FoodRadar
             navigationPage.Title = "Profile";
 
             navigationPage.BarBackgroundColor = Color.FromHex("#e21f4f");
+            
 
             Children.Add(new Search());
             Children.Add(new MapPage());

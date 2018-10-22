@@ -4,13 +4,11 @@
              x:Class="FoodRadar.ProfilePreferencesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Profile Preferences"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Profile Preferences" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <ListView>
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>System of measurement: Km</x:String>
                         <x:String>Placeholder Content</x:String>
                         <x:String>monopoly</x:String>
                         <x:String>Placeholder Content</x:String>

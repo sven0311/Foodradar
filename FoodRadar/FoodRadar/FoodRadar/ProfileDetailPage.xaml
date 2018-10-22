@@ -4,13 +4,11 @@
              x:Class="FoodRadar.ProfileDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Profile Detail Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Profile Detail Page" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <ListView>
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>Name: Sigurdur Jonsson</x:String>
                         <x:String>Placeholder Content</x:String>
                         <x:String>monopoly</x:String>
                         <x:String>Placeholder Content</x:String>

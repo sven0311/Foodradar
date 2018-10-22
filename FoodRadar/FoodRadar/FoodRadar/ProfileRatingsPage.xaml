@@ -4,14 +4,12 @@
              x:Class="FoodRadar.ProfileRatingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Profile Ratings"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Profile Ratings" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <ListView>
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>Flat White at Bean: 5 Hearts</x:String>
+                        <x:String>Steak at Jimmies on the Mall: 4 Hearts</x:String>
                         <x:String>Placeholder Content</x:String>
                         <x:String>Placeholder Content</x:String>
                         <x:String>Placeholder Content</x:String>
