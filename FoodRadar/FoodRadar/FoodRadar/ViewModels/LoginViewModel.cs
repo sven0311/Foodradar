@@ -32,16 +32,28 @@ namespace FoodRadar.ViewModels
             Button_LogIn = new Command(() =>
             {
                 // await Navigation.PushAsync(new Profile());
-                List<Customer> customers = App.Database.GetCustomersAsync().Result;
-                Customer cust = App.Database.getPassword(email);
-                if (cust == null)
+                if (email.Equals("") || password.Equals(""))
                 {
-                    //pop up message (email not found)
+                    MessagingCenter.Send(this, "blank", "The email and password field can not be blank.");
                 }
-                if (cust.password == password)
+                else
                 {
-                    loggedIn = true;
-                    customer = cust;
+                    Customer cust = App.Database.getPassword(email);
+                    if (cust == null)
+                    {
+                        //alert
+                    }
+                    else { 
+                        if (cust.password == password)
+                        {
+                            loggedIn = true;
+                            customer = cust;
+                            Application.Current.MainPage = new MainPage();
+                        } else
+                        {
+                            //alert wrong password
+                        }
+                    }
                 }
             });
         }
