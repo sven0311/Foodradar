@@ -50,7 +50,7 @@
                 </Grid>
 
                 <Slider Value="{Binding Price}"  Maximum="100" Minimum="0" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
-                <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" />
+                <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" Command="{Binding Search_Clicked}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

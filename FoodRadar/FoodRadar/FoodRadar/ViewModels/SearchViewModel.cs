@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace FoodRadar.ViewModels
 {
@@ -8,8 +9,14 @@ namespace FoodRadar.ViewModels
     {
         public SearchViewModel()
         {
+            Search_Clicked = new Command(() =>
+            {
+                Application.Current.MainPage = new SearchResults();
+            });
         }
 
+
+        public Command Search_Clicked { protected set; get; }
         public int distance = 100;
         public int price = 25;
         public int Distance
