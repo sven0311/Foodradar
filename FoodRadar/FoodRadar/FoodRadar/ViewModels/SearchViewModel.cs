@@ -4,15 +4,47 @@ using System.Text;
 
 namespace FoodRadar.ViewModels
 {
-    public class SearchViewModel
+    public class SearchViewModel : ViewModelBase
     {
-
-        public int distance;
-
         public SearchViewModel()
         {
-            distance = 25;
         }
+
+        public int distance = 100;
+        public int price = 25;
+        public int Distance
+        {
+            get
+            {
+                return distance;
+            }
+            set
+            {
+                if (distance != value)
+                {
+                    distance = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                if (price != value)
+                {
+                    price = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
     }
 
 }
