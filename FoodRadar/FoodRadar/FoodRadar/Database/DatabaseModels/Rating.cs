@@ -21,10 +21,10 @@ namespace FoodRadar.Database.DatabaseModels
         //add picture later
 
         [NotNull, Column("MealId")]
-        public Meal meal { get; set; }
+        public int mealId { get; set; }
 
         [NotNull, Column("CustomerId")]
-        public Customer customer { get; set; }
+        public int customerId { get; set; }
 
     }
 }
