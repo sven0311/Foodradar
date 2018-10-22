@@ -4,10 +4,10 @@
              x:Class="FoodRadar.ProfileRatingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Profile Details" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+            <Button Text="Back" TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
 
             </Button>
-            <Label Text="Profile Ratings" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <ListView>
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
