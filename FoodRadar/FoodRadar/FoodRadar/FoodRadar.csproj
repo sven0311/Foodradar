@@ -23,6 +23,9 @@
     </Compile>
     <Compile Update="SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
+	</Compile>
+    <Compile Update="ProfilePreferencesPage.xaml.cs">
+      <DependentUpon>ProfilePreferencesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -38,6 +41,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Profile.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePreferencesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileRatingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Search.xaml">

@@ -44,10 +44,12 @@ namespace FoodRadar
             //}
         }
 
+
         private async void Button_SignUp(Object sender, EventArgs e)
         {
             Application.Current.MainPage = new SignUpPage();
         }
+
 
         private String email;
         private String Email

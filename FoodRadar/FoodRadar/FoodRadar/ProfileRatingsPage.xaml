@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodRadar.ProfileRatingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Back" TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
+
+            </Button>
+            <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Flat White at Bean: 5 Hearts</x:String>
+                        <x:String>Steak at Jimmies on the Mall: 4 Hearts</x:String>
+                        <x:String>Cheeseburger at Miss Kay's: 3 Hearts</x:String>
+                        <x:String>Long Black at Bean: 5 Hearts</x:String>
+                        <x:String>Torta at Burrito Bar: 5 Hearts</x:String>
+                        <x:String>Yiro at The Yiro Shop: 4 Hearts</x:String>
+                        <x:String>Nacho Fries at GYG: 3 Hearts</x:String>
+                        <x:String>Cold Brew at Bean: 5 Hearts</x:String>
+                        <x:String>XXXX at Botanic Bar: 4 Hearts</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
