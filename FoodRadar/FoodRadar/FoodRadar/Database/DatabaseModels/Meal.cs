@@ -17,9 +17,9 @@ namespace FoodRadar.Database.DatabaseModels
         public string name { get; set; }
 
         [NotNull, Column("CuisineId")]
-        public Cuisine cuisine { get; set; }
+        public int cuisineId { get; set; }
 
         [NotNull, Column("RestaurantId")]
-        public Restaurant restaurant { get; set; }
+        public int restaurantId { get; set; }
     }
 }
