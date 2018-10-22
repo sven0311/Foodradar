@@ -40,11 +40,23 @@ namespace FoodRadar
                 price = 2,
                 desc = "lovely local small cafe/bar",
                 address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
-                lon = -27.473210,
-                lat = 153.025800,
+                lon = 153.025800,
+                lat = -27.473210,
                 url = "https://beanbrisbane.com.au/"
             };
             App.Database.SaveRestaurant(res);
+
+            var res2 = new Restaurant()
+            {
+                name = "Donna Chang",
+                price = 3,
+                desc = "Chinese Resturant",
+                address = "shop 3/171 George St, Brisbane City QLD 4000",
+                lon = 153.0242209,
+                lat = -27.4716441,
+                url = "https://opentable.com.au"
+            };
+            App.Database.SaveRestaurant(res2);
         }
     }
 

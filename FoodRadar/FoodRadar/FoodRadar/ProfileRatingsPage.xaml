@@ -10,13 +10,13 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Flat White at Bean: 5 Hearts</x:String>
                         <x:String>Steak at Jimmies on the Mall: 4 Hearts</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>monopoly</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>Cheeseburger at Miss Kay's: 3 Hearts</x:String>
+                        <x:String>Long Black at Bean: 5 Hearts</x:String>
+                        <x:String>Torta at Burrito Bar: 5 Hearts</x:String>
+                        <x:String>Yiro at The Yiro Shop: 4 Hearts</x:String>
+                        <x:String>Nacho Fries at GYG: 3 Hearts</x:String>
+                        <x:String>Cold Brew at Bean: 5 Hearts</x:String>
+                        <x:String>XXXX at Botanic Bar: 4 Hearts</x:String>
                     </x:Array>
                 </ListView.ItemsSource>
             </ListView>

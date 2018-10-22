@@ -9,10 +9,8 @@
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>System of measurement: Km</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>monopoly</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>Privacy: Public Ratings</x:String>
+                        <x:String>Location Permission: Granted</x:String>
                     </x:Array>
                 </ListView.ItemsSource>
             </ListView>

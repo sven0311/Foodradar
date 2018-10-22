@@ -10,9 +10,7 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Name: Sigurdur Jonsson</x:String>
                         <x:String>Email: s.jonsson@gmail.com</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
-                        <x:String>Placeholder Content</x:String>
+                        <x:String>Age: 22</x:String>
                     </x:Array>
                 </ListView.ItemsSource>
             </ListView>
