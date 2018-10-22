@@ -1,4 +1,5 @@
 ﻿using FoodRadar.Database.DatabaseModels;
+using FoodRadar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,13 @@ namespace FoodRadar
             pages.MoveNext(); // First page
             pages.MoveNext(); // Second page
             CurrentPage = pages.Current;
+            if (LoginViewModel.loggedIn)
+            {
+                Children.Add(new Profile());
+            } else
+            {
+                Children.Add(new LogInpage());
+            }
         }
 
        

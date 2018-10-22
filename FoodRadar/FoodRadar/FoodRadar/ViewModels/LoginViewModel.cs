@@ -17,8 +17,7 @@ namespace FoodRadar.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        public bool loggedIn = false;
-        public Customer customer = null;
+        public static Customer customer = null;
         public Command Button_Clicked { protected set; get; }
         public Command Button_LogIn { protected set; get; }
 
@@ -97,7 +96,7 @@ namespace FoodRadar.ViewModels
             }
         }
 
-
+        public static bool loggedIn = false;
 
     }
 }
