@@ -36,16 +36,18 @@ namespace FoodRadar
             // Content = stack;
 
             InitializeComponent();
-            btnGetLocation.Clicked += BtnGetLocation_Clicked;
+            //Commented out to remove button
+            //btnGetLocation.Clicked += BtnGetLocation_Clicked;
             setPins();
             //await RetreiveLocation();
         }
 
+        /*
         private async void BtnGetLocation_Clicked(object sender, EventArgs e)
         {
            // await RetreiveLocation();
         }
-
+        */
         private async void setPins()
         {
             var locator = CrossGeolocator.Current;
