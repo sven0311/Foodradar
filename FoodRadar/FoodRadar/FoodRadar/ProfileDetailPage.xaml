@@ -4,6 +4,9 @@
              x:Class="FoodRadar.ProfileDetailPage">
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Profile Details" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+
+            </Button>
             <Label Text="Profile Detail Page" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <ListView>
                 <ListView.ItemsSource>

@@ -16,5 +16,11 @@ namespace FoodRadar
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void Button_Back(object sender, EventArgs e)
+        {
+            //Application.Current.MainPage = new Profile();
+            await Navigation.PopModalAsync();
+        }
+    }
 }

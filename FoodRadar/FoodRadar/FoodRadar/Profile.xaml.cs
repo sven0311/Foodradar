@@ -19,20 +19,20 @@ namespace FoodRadar
 
         private async void Button_Details(object sender, EventArgs e)
         {
-            //Application.Current.MainPage = new ProfileDetailPage();
-            await Navigation.PushAsync(new ProfileDetailPage());
+            //Application.Current.MainPage = new Profile();
+            await Navigation.PushModalAsync(new ProfileDetailPage());
         }
 
         private async void Button_Preferences(object sender, EventArgs e)
         {
             //Application.Current.MainPage = new ProfileDetailPage();
-            await Navigation.PushAsync(new ProfilePreferencesPage());
+            await Navigation.PushModalAsync(new ProfilePreferencesPage());
         }
 
         private async void Button_Ratings(object sender, EventArgs e)
         {
             //Application.Current.MainPage = new ProfileDetailPage();
-            await Navigation.PushAsync(new ProfileRatingsPage());
+            await Navigation.PushModalAsync(new ProfileRatingsPage());
         }
 
     }
