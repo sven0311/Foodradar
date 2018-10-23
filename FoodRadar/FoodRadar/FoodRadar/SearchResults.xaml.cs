@@ -1,11 +1,11 @@
-﻿using FoodRadar.Database.DatabaseModels;
+﻿using Foodradar.Views.Cells;
+using FoodRadar.Database.DatabaseModels;
 using FoodRadar.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WorkingWithListview;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,9 +38,9 @@ namespace FoodRadar
         public async void CreateList()
         {
             var listView = new ListView();
-            List<Restaurant> restaurants = App.Database.GetRestaurants().Result;
+            List<RestaurantListView> restaurants = listifyRestaurants(App.Database.GetRestaurants().Result);
             listView.ItemsSource = restaurants;
-            listView.ItemTemplate = new DataTemplate(typeof(CustomCell));
+            listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
             listView.ItemTapped += async (sender, e) => {
                 await DisplayAlert("Tapped", e.Item + " row was tapped", "OK");

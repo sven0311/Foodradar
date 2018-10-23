@@ -67,6 +67,11 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().ToListAsync();
         }
 
+        public Task<List<Meal>> GetMeals()
+        {
+            return database.Table<Meal>().ToListAsync();
+        }
+
         public Customer getPassword(String email)
         {
             
