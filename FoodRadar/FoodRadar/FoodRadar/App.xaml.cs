@@ -37,8 +37,8 @@ namespace FoodRadar
 
             var cust = new Customer()
             {
-                email = "asdf@asdf.com",
-                password = "12345",
+                email = "a",
+                password = "a",
                 firstName = "Siggi",
                 lastName = "Jonsson"
             };

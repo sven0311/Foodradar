@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
 using FoodRadar.ViewModels;
+using PageNavSingleton;
 
 namespace FoodRadar
 {

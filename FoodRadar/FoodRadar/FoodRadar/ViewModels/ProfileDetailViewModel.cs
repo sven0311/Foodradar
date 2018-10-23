@@ -8,7 +8,7 @@ namespace FoodRadar.ViewModels
     {
 
 
-        public String email;
+        public String email = "a";
         public String Email
         {
             get
@@ -22,7 +22,7 @@ namespace FoodRadar.ViewModels
             }
         }
 
-        public String firstName;
+        public String firstName = "Sven";
         public String FirstName
         {
             get
@@ -33,18 +33,19 @@ namespace FoodRadar.ViewModels
             {
                 if (firstName != value)
                 {
-                    firstName = FoodRadar.ViewModels.LoginViewModel.customer.firstName;
+                    //firstName = FoodRadar.ViewModels.LoginViewModel.customer.firstName;
+                    firstName = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        public String lastName;
+        public String lastName = "Andabaka";
         public String LastName
         {
             get
             {
-                return lastName;
+                return FoodRadar.ViewModels.LoginViewModel.customer.lastName;
             }
             set
             {
