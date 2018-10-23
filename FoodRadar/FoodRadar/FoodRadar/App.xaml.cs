@@ -20,7 +20,7 @@ namespace FoodRadar
 
             InitializeComponent();
             App.Database.resetDatabase();
-            MainPage = new Intro();
+            MainPage = new Search();
             loadDataInDb();
         }
 
@@ -34,7 +34,20 @@ namespace FoodRadar
                 address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
                 lon = -27.473210,
                 lat = 153.025800,
-                url = "https://beanbrisbane.com.au/"
+                url = "https://beanbrisbane.com.au/",
+                rating = 3
+            };
+
+            var res2 = new Restaurant()
+            {
+                name = "Hidden Bean",
+                price = 3,
+                desc = "not so lovely local small cafe/bar",
+                address = "Some other street, Laneway Basement, Brisbane City QLD 4000",
+                lon = -24.473210,
+                lat = 152.025800,
+                url = "https://beanbrisbane.com.au/",
+                rating = 2
             };
 
             var cust = new Customer()
@@ -46,6 +59,7 @@ namespace FoodRadar
             };
             App.Database.SaveCustomerAsync(cust);
             App.Database.SaveRestaurant(res);
+            App.database.SaveRestaurant(res2);
         }
 
         public static FoodRadarDB Database

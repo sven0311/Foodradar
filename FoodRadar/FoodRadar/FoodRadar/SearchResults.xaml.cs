@@ -1,10 +1,11 @@
 ﻿using FoodRadar.Database.DatabaseModels;
+using FoodRadar.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using WorkingWithListview;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,37 +19,36 @@ namespace FoodRadar
         public SearchResults()
         {
             InitializeComponent();
-            CreateTable();
+            CreateList();
 
         }
 
-
-        public void CreateTable()
+        public List<RestaurantListView> listifyRestaurants(List<Restaurant> restaurants)
         {
-            var table = new TableView();
-            table.Intent = TableIntent.Settings;
-            var layout = new StackLayout() { Orientation = StackOrientation.Horizontal };
-            layout.Children.Add(new Image() { Source = "bulb.png" });
-            layout.Children.Add(new Label()
+            List<RestaurantListView> returnList = new List<RestaurantListView>();
+            foreach(var r in restaurants)
             {
-                Text = "left",
-                TextColor = Color.FromHex("#f35e20"),
-                VerticalOptions = LayoutOptions.Center
-            });
-            layout.Children.Add(new Label()
-            {
-                Text = "right",
-                TextColor = Color.FromHex("#503026"),
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.EndAndExpand
-            });
-            table.Root = new TableRoot() {
-                new TableSection("Getting Started") {
-                    new ViewCell() {View = layout}
-                }
+                returnList.Add(new RestaurantListView(r.name, r.rating, r.price));
+            }
+
+            return returnList;
+        }
+
+
+        public async void CreateList()
+        {
+            var listView = new ListView();
+            List<Restaurant> restaurants = App.Database.GetRestaurants().Result;
+            listView.ItemsSource = restaurants;
+            listView.ItemTemplate = new DataTemplate(typeof(CustomCell));
+
+            listView.ItemTapped += async (sender, e) => {
+                await DisplayAlert("Tapped", e.Item + " row was tapped", "OK");
+                ((ListView)sender).SelectedItem = null; // de-select the row
             };
 
-            Content = table;
+            Padding = new Thickness(0, 20, 0, 0);
+            Content = listView;
         }
         
 

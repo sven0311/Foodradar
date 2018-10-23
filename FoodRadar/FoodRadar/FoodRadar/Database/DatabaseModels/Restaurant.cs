@@ -38,5 +38,7 @@ namespace FoodRadar.Database.DatabaseModels
         [Column("URL")]
         public string url { get; set; }
 
+        public int rating { get; set; }
+
     }
 }
