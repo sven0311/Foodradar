@@ -13,8 +13,6 @@ namespace FoodRadar
 {
     public partial class App : Application
     {
-
-
         static FoodRadarDB database;
         public App()
         {
@@ -22,7 +20,6 @@ namespace FoodRadar
             App.Database.resetDatabase();
             MainPage = new Intro();
             loadDataInDb();
-            PageNavigationManager.Instance.Navigation = MainPage.Navigation;
         }
 
         private void loadDataInDb()

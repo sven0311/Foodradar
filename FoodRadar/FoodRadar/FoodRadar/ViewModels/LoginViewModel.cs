@@ -35,6 +35,7 @@ namespace FoodRadar.ViewModels
             Button_Clicked = new Command(() =>
             {
                 Application.Current.MainPage = new MainPage();
+                PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
             });
 
             Button_SignUp = new Command(() =>
@@ -64,7 +65,9 @@ namespace FoodRadar.ViewModels
                             loggedIn = true;
                             customer = cust;
                             Application.Current.MainPage = new MainPage();
-                        } else
+                            PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
+                        }
+                        else
                         {
                             //alert wrong password
                         }

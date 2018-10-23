@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using Xamarin.Forms;
 using FoodRadar.ViewModels;
 using FoodRadar;
+using PageNavSingleton;
 
 namespace App
 {
@@ -44,12 +45,14 @@ namespace App
             //await logo.ScaleTo(150, 1200, Easing.Linear);
             if (LoginViewModel.loggedIn)
             {
-                Application.Current.MainPage = new MainPage();
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             else
             {
+
                 Application.Current.MainPage = new NavigationPage(new FoodRadar.LogInpage(false));
             }
+            PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
         }
 
 
