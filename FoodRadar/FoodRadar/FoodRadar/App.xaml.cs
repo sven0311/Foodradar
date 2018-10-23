@@ -6,6 +6,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
+using PageNavSingleton;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodRadar
@@ -17,11 +18,11 @@ namespace FoodRadar
         static FoodRadarDB database;
         public App()
         {
-
             InitializeComponent();
             App.Database.resetDatabase();
             MainPage = new Intro();
             loadDataInDb();
+            PageNavigationManager.Instance.Navigation = MainPage.Navigation;
         }
 
         private void loadDataInDb()
@@ -32,8 +33,8 @@ namespace FoodRadar
                 price = 2,
                 desc = "lovely local small cafe/bar",
                 address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
-                lon = -27.473210,
-                lat = 153.025800,
+                lat = -27.473210,
+                lon = 153.025800,
                 url = "https://beanbrisbane.com.au/"
             };
 
@@ -58,8 +59,6 @@ namespace FoodRadar
                 }
                 return database;
             }
-            
-
         }
 
         protected override void OnStart()

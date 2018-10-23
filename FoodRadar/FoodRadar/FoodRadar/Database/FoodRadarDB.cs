@@ -44,7 +44,12 @@ namespace FoodRadar.DB
         {
             return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
-     
+
+        public Task<Customer> CheckEmail(string email) //??
+        {
+            return database.Table<Customer>().Where(i => i.email == email).FirstOrDefaultAsync();
+        }
+
         public Task<List<Customer>> GetCustomersAsync()
         {
             return database.Table<Customer>().ToListAsync();

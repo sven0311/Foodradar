@@ -15,12 +15,20 @@ namespace FoodRadar
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogInpage : ContentPage
 	{
-        public LogInpage()
+
+        public LogInpage(bool later)
 		{
 			InitializeComponent();
+
+            if (later)
+            {
+                skip.IsVisible = false;
+            }
+
             MessagingCenter.Subscribe<LoginViewModel>(this, "blank", (sender) => {
                 // do something whenever the "Hi" message is sent
             });
         }
     }
+
 }

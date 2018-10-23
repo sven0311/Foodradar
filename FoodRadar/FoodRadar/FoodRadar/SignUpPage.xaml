@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FoodRadar.ViewModels"
+             x:Class="FoodRadar.SignUpPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
+            <StackLayout Orientation="Horizontal">
+                <Entry Text ="{Binding firstName}" Placeholder="First Name"></Entry>
+                <Entry Text="{Binding lastName}" Placeholder="Last Name"></Entry>
+            </StackLayout>
+            <Entry Text ="{Binding email}" Placeholder="Email"></Entry>
+            <Entry Text ="{Binding password}" Placeholder="Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
+            <Entry Text ="{Binding confirmPassword}" Placeholder="Confirm Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Save Password"></Label>
+                <Switch IsToggled="False"></Switch>
+            </StackLayout>
+            <Button Text="Sign Up" BackgroundColor="Red" Command ="{Binding Button_ok}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
