@@ -5,13 +5,16 @@
              x:Class="FoodRadar.SignUpPage">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
+            <StackLayout.BindingContext>
+                <local:SignUpViewModel/>
+            </StackLayout.BindingContext>
             <StackLayout Orientation="Horizontal">
-                <Entry Text ="{Binding firstName}" Placeholder="First Name"></Entry>
-                <Entry Text="{Binding lastName}" Placeholder="Last Name"></Entry>
+                <Entry Text ="{Binding FirstName}" Placeholder="First Name"></Entry>
+                <Entry Text="{Binding LastName}" Placeholder="Last Name"></Entry>
             </StackLayout>
-            <Entry Text ="{Binding email}" Placeholder="Email"></Entry>
-            <Entry Text ="{Binding password}" Placeholder="Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
-            <Entry Text ="{Binding confirmPassword}" Placeholder="Confirm Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
+            <Entry Text ="{Binding Email}" Placeholder="Email"></Entry>
+            <Entry Text ="{Binding Password}" Placeholder="Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
+            <Entry Text ="{Binding ConfirmPassword}" Placeholder="Confirm Password" PlaceholderColor="#bababa" FontSize="16"  IsPassword="True"></Entry>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Save Password"></Label>
                 <Switch IsToggled="False"></Switch>

@@ -25,10 +25,6 @@ namespace FoodRadar
             {
                 skip.IsVisible = false;
             }
-
-            MessagingCenter.Subscribe<LoginViewModel>(this, "blank", (sender) => {
-                // do something whenever the "Hi" message is sent
-            });
         }
     }
 

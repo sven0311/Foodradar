@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
 using PageNavSingleton;
+using Acr.UserDialogs;
 
 namespace FoodRadar.ViewModels
 {
@@ -50,14 +51,15 @@ namespace FoodRadar.ViewModels
                 // await Navigation.PushAsync(new Profile());
                 if (email == null || password == null || email.Equals("") || password.Equals(""))
                 {
-                    MessagingCenter.Send(this, "blank", "The email and password field can not be blank.");
+                    UserDialogs.Instance.Alert("Email and password field can not be blank");
                 }
                 else
                 {
                     Customer cust = App.Database.getPassword(email);
                     if (cust == null)
                     {
-                        //alert
+                        UserDialogs.Instance.Alert("Wrong email");
+
                     }
                     else { 
                         if (cust.password == password)
@@ -69,7 +71,7 @@ namespace FoodRadar.ViewModels
                         }
                         else
                         {
-                            //alert wrong password
+                            UserDialogs.Instance.Alert("Wrong password");
                         }
                     }
                 }
