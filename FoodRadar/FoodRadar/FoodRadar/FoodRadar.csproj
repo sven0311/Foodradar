@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="MealPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MealSearchResults.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

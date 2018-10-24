@@ -9,15 +9,11 @@ namespace FoodRadar.ViewModels
 {
     public class SearchViewModel : ViewModelBase
     {
-        private PageNavigationManager navManager;
 
+        private PageNavigationManager navManager = PageNavigationManager.Instance;
         public SearchViewModel()
         {
-            Search_Clicked = new Command(() =>
-            {
-                
-                Application.Current.MainPage = new MealSearchResults(App.Database.SearchMeals(searchString));
-            });
+            Search_Clicked = new Command(() => Search_Button());
         }
 
         public void Search_Button()

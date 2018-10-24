@@ -1,6 +1,7 @@
 ﻿using Foodradar.Views.Cells;
 using FoodRadar.Database.DatabaseModels;
 using FoodRadar.Views;
+using PageNavSingleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace FoodRadar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MealSearchResults : ContentPage
     {
+        private PageNavigationManager navManager = PageNavigationManager.Instance;
         public List<Meal> meals;
 
         public MealSearchResults()
@@ -30,10 +32,10 @@ namespace FoodRadar
             CreateList();
         }
 
-        public List<MealListView> listifyMeals(List<Restaurant> restaurants)
+        public List<MealListView> listifyMeals(List<Meal> meals)
         {
             List<MealListView> returnList = new List<MealListView>();
-            foreach (var r in restaurants)
+            foreach (var r in meals)
             {
                 returnList.Add(new MealListView(r.name, r.rating, r.price));
             }
@@ -46,13 +48,17 @@ namespace FoodRadar
         {
             var listView = new ListView();
 
-            listView.ItemsSource = meals;
+            listView.ItemsSource = listifyMeals(meals);
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
 
             listView.ItemTapped += async (sender, e) => {
+                Meal m = (Meal)e.Item;
+                Restaurant r = App.Database.GetRestaurantById(m.restaurantId);
+                RestaurantListView  rest = new RestaurantListView(r.name, r.rating, r.price);
 
-                Application.Current.MainPage = new RestaurantPage((RestaurantListView)e.Item);
+                navManager.showRestaurantPage(rest);
+                navManager.showMealPage(m);
             };
 
             Padding = new Thickness(0, 20, 0, 0);

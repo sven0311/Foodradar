@@ -1,6 +1,7 @@
 ﻿using Foodradar.Views.Cells;
 using FoodRadar.Database.DatabaseModels;
 using FoodRadar.Views;
+using PageNavSingleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace FoodRadar
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RestaurantPage : ContentPage
 	{
+
+        private PageNavigationManager navManager = PageNavigationManager.Instance;
 
         RestaurantListView restaurant; 
 		public RestaurantPage (RestaurantListView restaurant)
@@ -53,6 +56,7 @@ namespace FoodRadar
 
             var firstStack = new StackLayout()
             {
+                HorizontalOptions = LayoutOptions.Center,
                 Children = { restaurantName, restaurantPrice, restaurantRating },
             };
 
@@ -63,8 +67,7 @@ namespace FoodRadar
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
             listView.ItemTapped += async (sender, e) => {
-                await DisplayAlert("Tapped", e.Item + " row was tapped", "OK");
-                ((ListView)sender).SelectedItem = null; // de-select the row
+                navManager.showMealPage((Meal)e.Item);
             };
 
             var parentStack = new StackLayout()

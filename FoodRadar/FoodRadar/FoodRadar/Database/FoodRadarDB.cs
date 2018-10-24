@@ -119,6 +119,11 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().ToListAsync();
         }
 
+        public Restaurant GetRestaurantById(int id)
+        {
+            return database.Table<Restaurant>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
+        }
+
 
         // ALL SEARCH FUNCTIONS *************************************
         public List<Meal> SearchMeals(string searchString)

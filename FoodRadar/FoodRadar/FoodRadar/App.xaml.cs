@@ -1,4 +1,4 @@
-
+    
 ﻿using FoodRadar.DB;
 using System.IO;
 ﻿using App;
@@ -18,7 +18,7 @@ namespace FoodRadar
         {
             InitializeComponent();
             App.Database.resetDatabase();
-            MainPage = new Search();
+            MainPage = new Intro();
             loadDataInDb();
         }
 

@@ -1,5 +1,6 @@
 using FoodRadar;
 using FoodRadar.Database.DatabaseModels;
+using FoodRadar.Views;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -30,7 +31,17 @@ namespace PageNavSingleton
 
         public void showMealSearchResultsPage(List<Meal> meals)
         {
-            navigation.PushModalAsync(new MealSearchResults(meals));
+            navigation.PushAsync(new MealSearchResults(meals));
+        }
+
+        public void showMealPage(Meal meal)
+        {
+            navigation.PushAsync(new MealPage(meal));
+        }
+
+        public void showRestaurantPage(RestaurantListView rest)
+        {
+            navigation.PushAsync(new RestaurantPage(rest));
         }
 
         public void showSignUpPage()
