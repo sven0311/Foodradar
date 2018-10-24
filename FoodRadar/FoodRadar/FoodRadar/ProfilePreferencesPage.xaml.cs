@@ -15,6 +15,7 @@ namespace FoodRadar
 		public ProfilePreferencesPage ()
 		{
 			InitializeComponent ();
+            BindingContext = new ViewModels.ProfilePrefViewModel();
 		}
 
         private async void Button_Back(object sender, EventArgs e)

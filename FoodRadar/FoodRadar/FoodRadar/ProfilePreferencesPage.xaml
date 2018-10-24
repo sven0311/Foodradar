@@ -7,18 +7,8 @@
             <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
 
             </Button>
-            <Label Text="Profile Preferences"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <ListView>
-                <ListView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>System of measurement: Km</x:String>
-                        <x:String>Privacy: Public Ratings</x:String>
-                        <x:String>Change Password</x:String>
-                        <x:String>Manage Notifications</x:String>
-                        <x:String>Delete Account</x:String>
-                    </x:Array>
-                </ListView.ItemsSource>
-            </ListView>
+            <ListView ItemsSource = "{Binding MySource}"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
