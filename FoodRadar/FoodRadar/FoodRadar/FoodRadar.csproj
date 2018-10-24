@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Scorchio.NinjaCoder.Xamarin.Forms.Labs" Version="2.0.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
@@ -26,6 +27,12 @@
     </Compile>
     <Compile Update="RestaurantSearchResults.xaml.cs">
       <DependentUpon>RestaurantSearchResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+	  </Compile>
+    <Compile Update="ProfilePreferencesPage.xaml.cs">
+      <DependentUpon>ProfilePreferencesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -46,7 +53,19 @@
     <EmbeddedResource Update="LogInpage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="SignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Profile.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePreferencesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileRatingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Search.xaml">

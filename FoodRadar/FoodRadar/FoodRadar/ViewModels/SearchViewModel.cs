@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using FoodRadar;
+using PageNavSingleton;
 
 namespace FoodRadar.ViewModels
 {
     public class SearchViewModel : ViewModelBase
     {
+        private PageNavigationManager navManager;
+
         public SearchViewModel()
         {
             Search_Clicked = new Command(() =>
             {
+                
                 Application.Current.MainPage = new MealSearchResults(App.Database.SearchMeals(searchString));
             });
         }
 
+        public void Search_Button()
+        {
+            navManager.showMealSearchResultsPage(App.Database.SearchMeals(searchString));
+        }
 
         public Command Search_Clicked { protected set; get; }
         public int distance = 100;

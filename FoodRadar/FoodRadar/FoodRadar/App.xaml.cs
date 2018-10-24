@@ -6,18 +6,16 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
+using PageNavSingleton;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodRadar
 {
     public partial class App : Application
     {
-
-
         static FoodRadarDB database;
         public App()
         {
-
             InitializeComponent();
             App.Database.resetDatabase();
             MainPage = new Search();
@@ -71,8 +69,8 @@ namespace FoodRadar
 
             var cust = new Customer()
             {
-                email = "asdf@asdf.com",
-                password = "12345",
+                email = "a",
+                password = "a",
                 firstName = "Siggi",
                 lastName = "Jonsson"
             };
@@ -89,8 +87,6 @@ namespace FoodRadar
                 }
                 return database;
             }
-            
-
         }
 
         protected override void OnStart()

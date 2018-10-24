@@ -32,12 +32,14 @@
                  IsShowingUser="True"
                  />
         </StackLayout>
+        <!--
         <Button x:Name="btnGetLocation" Text="O" Margin="0" Padding ="0"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Y,Factor=1,Constant=160}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=1,Constant=200}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.2,Constant=0}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.2,Constant=0}"
-                ></Button>
+                ></Button> 
+        -->
     </RelativeLayout>
     
 </ContentPage>

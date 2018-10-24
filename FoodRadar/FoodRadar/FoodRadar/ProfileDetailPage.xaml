@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FoodRadar.ViewModels"
+             x:Class="FoodRadar.ProfileDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BindingContext>
+                <local:ProfileDetailViewModel/>
+            </StackLayout.BindingContext>
+            <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f"></Button>
+            <Label Text="Profile Details"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="First Name"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding FirstName}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Last Name"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding LastName}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="E-Mail"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Email}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

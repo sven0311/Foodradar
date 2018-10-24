@@ -4,8 +4,9 @@ using System.Text;
 using System.Linq;
 using System.Reflection.Emit;
 using Xamarin.Forms;
-
-
+using FoodRadar.ViewModels;
+using FoodRadar;
+using PageNavSingleton;
 
 namespace App
 {
@@ -42,7 +43,18 @@ namespace App
             await logo.RotateTo(360, 1000);
             //await logo.ScaleTo(0.9, 1500, Easing.Linear);
             //await logo.ScaleTo(150, 1200, Easing.Linear);
-            Application.Current.MainPage = new NavigationPage(new FoodRadar.LogInpage());
+           // var mainpage = new |NavigationPage
+             //   var mainpage2 
+            if (LoginViewModel.loggedIn)
+            {
+                Application.Current.MainPage = new NavigationPage(new MainPage());
+            }
+            else
+            {
+
+                Application.Current.MainPage = new NavigationPage(new FoodRadar.LogInpage(false));
+            }
+            PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
         }
 
 

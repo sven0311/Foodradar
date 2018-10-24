@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodRadar.Android", "FoodRa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodRadar.iOS", "FoodRadar\FoodRadar.iOS\FoodRadar.iOS.csproj", "{D39D6744-2AA8-4FFD-A813-732ECBA585D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodRadar", "FoodRadar\FoodRadar\FoodRadar.csproj", "{5C55DB17-F551-483B-839F-306DA51010EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodRadar", "FoodRadar\FoodRadar\FoodRadar.csproj", "{5C55DB17-F551-483B-839F-306DA51010EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

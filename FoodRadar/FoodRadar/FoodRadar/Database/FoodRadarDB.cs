@@ -86,10 +86,20 @@ namespace FoodRadar.DB
         {
             return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
-     
+
+        public Task<Customer> CheckEmail(string email) //??
+        {
+            return database.Table<Customer>().Where(i => i.email == email).FirstOrDefaultAsync();
+        }
+
         public Task<List<Customer>> GetCustomersAsync()
         {
             return database.Table<Customer>().ToListAsync();
+        }
+
+        public Task<List<Rating>> getRatingsforCustomer(int id)
+        {
+            return database.Table<Rating>().Where(i => i.customerId == id).ToListAsync();
         }
 
         public Task<int> SaveRestaurant(Restaurant item)

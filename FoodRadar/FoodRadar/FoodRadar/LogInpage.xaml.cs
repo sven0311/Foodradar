@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
+using FoodRadar.ViewModels;
+using PageNavSingleton;
 
 namespace FoodRadar
 {
@@ -15,19 +17,15 @@ namespace FoodRadar
 	public partial class LogInpage : ContentPage
 	{
 
-       
-
-        public LogInpage()
+        public LogInpage(bool later)
 		{
 			InitializeComponent();
-            
+
+            if (later)
+            {
+                skip.IsVisible = false;
+            }
         }
-
-        
-
-        
-
     }
-
 
 }
