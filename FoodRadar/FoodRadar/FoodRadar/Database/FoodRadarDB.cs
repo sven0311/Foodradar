@@ -12,11 +12,15 @@ namespace FoodRadar.DB
         public SQLiteAsyncConnection database { get; }
         public FoodRadarDB(string dbPath)
         {
+            
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
             database.CreateTableAsync<Restaurant>().Wait();
             database.CreateTableAsync<Cuisine>().Wait();
-            database.CreateTableAsync<Meal>().Wait();
+            /*SQLiteCommand command = new SQLiteCommand(database);
+            command.CommandText = "Query ";
+            command.ExecuteQuery<Customer>(); */
+             database.CreateTableAsync<Meal>().Wait();
             database.CreateTableAsync<Rating>().Wait();
         }
 
@@ -29,7 +33,8 @@ namespace FoodRadar.DB
             database.DeleteAllAsync<Meal>();
         }
 
-        public Task<int> SaveCustomerAsync(Customer item)
+
+        public Task<int> SaveItemAsync(Customer item)
         {
             if (item.Id != 0)
             {
@@ -40,6 +45,43 @@ namespace FoodRadar.DB
                 return database.InsertAsync(item);
             }
         }
+
+        public Task<int> SaveItemAsync(Restaurant item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveItemAsync(Meal item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveItemAsync(Cuisine item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
         public Task<Customer> GetCustomerAsync(int id)
         {
             return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
@@ -67,10 +109,43 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().ToListAsync();
         }
 
+
+        // ALL SEARCH FUNCTIONS *************************************
+        public List<Meal> SearchMeals(string searchString)
+        {
+            Cuisine cuisineResults = database.Table<Cuisine>().Where(i => i.name.ToLower() == searchString.ToLower()).FirstOrDefaultAsync().Result;
+            List<Meal> mealResults = database.Table<Meal>().Where(i => i.name.ToLower().Contains(searchString.ToLower()) ).ToListAsync().Result;
+            List<Meal> meals = new List<Meal>();
+            
+            if(cuisineResults != null) meals.AddRange(getMealsByCuisine(cuisineResults.Id));
+            if(mealResults != null) meals.AddRange(mealResults);
+            return meals;
+        }
+
+
+        public List<Meal> getMealsByCuisine(int cuisineId)
+        {
+            return database.Table<Meal>().Where(i => i.cuisineId == cuisineId).ToListAsync().Result;
+            
+        }
+        // ALL SEARCH FUNCTIONS **************************************
         public Task<List<Meal>> GetMeals()
         {
             return database.Table<Meal>().ToListAsync();
         }
+
+        public int GetCuisineId(string cuisine)
+        {
+            Cuisine c = database.Table<Cuisine>().Where(i => i.name == cuisine).FirstOrDefaultAsync().Result;
+            return c.Id;
+        }
+
+        public int GetRestaurantId(string restaurant)
+        {
+            Restaurant r = database.Table<Restaurant>().Where(i => i.name == restaurant).FirstOrDefaultAsync().Result;
+            return r.Id;
+        }
+
 
         public Customer getPassword(String email)
         {

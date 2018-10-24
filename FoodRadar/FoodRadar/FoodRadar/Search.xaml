@@ -12,7 +12,7 @@
                 </StackLayout.BindingContext>
                 <Label Text="What do you feel like?" FontSize="Large"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <Label Text="Meal or Category:" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
-                <Entry Placeholder="..." Margin="0, 0,0,20"></Entry>
+                <Entry Text="{Binding SearchString}" Placeholder="..." Margin="0, 0,0,20"></Entry>
 
                 <Grid>
                     <Grid.RowDefinitions>

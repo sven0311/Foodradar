@@ -16,7 +16,7 @@ namespace FoodRadar.ViewModels
         {
             customer.firstName = "Sigurdur";
             customer.lastName = "Jonsson";
-            App.Database.SaveCustomerAsync(customer);
+            App.Database.SaveItemAsync(customer);
         }
 
         public string GetFirstName

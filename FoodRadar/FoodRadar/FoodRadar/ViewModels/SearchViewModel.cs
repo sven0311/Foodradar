@@ -11,7 +11,7 @@ namespace FoodRadar.ViewModels
         {
             Search_Clicked = new Command(() =>
             {
-                Application.Current.MainPage = new SearchResults();
+                Application.Current.MainPage = new MealSearchResults(App.Database.SearchMeals(searchString));
             });
         }
 
@@ -19,6 +19,24 @@ namespace FoodRadar.ViewModels
         public Command Search_Clicked { protected set; get; }
         public int distance = 100;
         public int price = 25;
+        public string searchString;
+
+        public string SearchString
+        {
+            get
+            {
+                return searchString;
+            }
+            set
+            {
+                if (searchString != value)
+                {
+                    searchString = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public int Distance
         {
             get

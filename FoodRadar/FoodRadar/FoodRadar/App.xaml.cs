@@ -26,6 +26,7 @@ namespace FoodRadar
 
         private void loadDataInDb()
         {
+            
             var res = new Restaurant()
             {
                 name = "Bean",
@@ -37,6 +38,23 @@ namespace FoodRadar
                 url = "https://beanbrisbane.com.au/",
                 rating = 3
             };
+            App.Database.SaveItemAsync(res);
+
+            Cuisine c = new Cuisine()
+            {
+                name = "Italian",
+            };
+            App.Database.SaveItemAsync(c);
+
+
+            Meal m = new Meal()
+            {
+                name = "Pizza",
+                cuisineId = App.Database.GetCuisineId("Italian"),
+                restaurantId = App.Database.GetRestaurantId("Bean")
+            };
+            App.Database.SaveItemAsync(m);
+
 
             var res2 = new Restaurant()
             {
@@ -49,6 +67,7 @@ namespace FoodRadar
                 url = "https://beanbrisbane.com.au/",
                 rating = 2
             };
+            App.Database.SaveItemAsync(res2);
 
             var cust = new Customer()
             {
@@ -57,9 +76,7 @@ namespace FoodRadar
                 firstName = "Siggi",
                 lastName = "Jonsson"
             };
-            App.Database.SaveCustomerAsync(cust);
-            App.Database.SaveRestaurant(res);
-            App.database.SaveRestaurant(res2);
+            App.Database.SaveItemAsync(cust);
         }
 
         public static FoodRadarDB Database
