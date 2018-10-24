@@ -5,20 +5,45 @@ using System.IO;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FoodRadar.Database.DatabaseModels;
+using PageNavSingleton;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodRadar
 {
     public partial class App : Application
     {
-
-
         static FoodRadarDB database;
         public App()
         {
             InitializeComponent();
-
+            App.Database.resetDatabase();
             MainPage = new Intro();
+            loadDataInDb();
+        }
+
+        private void loadDataInDb()
+        {
+            var res = new Restaurant()
+            {
+                name = "Bean",
+                price = 2,
+                desc = "lovely local small cafe/bar",
+                address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
+                lat = -27.473210,
+                lon = 153.025800,
+                url = "https://beanbrisbane.com.au/"
+            };
+
+            var cust = new Customer()
+            {
+                email = "a",
+                password = "a",
+                firstName = "Siggi",
+                lastName = "Jonsson"
+            };
+            App.Database.SaveCustomerAsync(cust);
+            App.Database.SaveRestaurant(res);
         }
 
         public static FoodRadarDB Database
@@ -31,8 +56,6 @@ namespace FoodRadar
                 }
                 return database;
             }
-            
-
         }
 
         protected override void OnStart()

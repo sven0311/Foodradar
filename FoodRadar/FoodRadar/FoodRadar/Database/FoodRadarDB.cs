@@ -15,9 +15,21 @@ namespace FoodRadar.DB
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
             database.CreateTableAsync<Restaurant>().Wait();
+            database.CreateTableAsync<Cuisine>().Wait();
+            database.CreateTableAsync<Meal>().Wait();
+            database.CreateTableAsync<Rating>().Wait();
         }
 
-        public Task<int> SaveItemAsync(Customer item)
+        public void resetDatabase()
+        {
+            database.DeleteAllAsync<Customer>();
+            database.DeleteAllAsync<Restaurant>();
+            database.DeleteAllAsync<Cuisine>();
+            database.DeleteAllAsync<Rating>();
+            database.DeleteAllAsync<Meal>();
+        }
+
+        public Task<int> SaveCustomerAsync(Customer item)
         {
             if (item.Id != 0)
             {
@@ -28,7 +40,7 @@ namespace FoodRadar.DB
                 return database.InsertAsync(item);
             }
         }
-        public Task<Customer> GetItemAsync(int id)
+        public Task<Customer> GetCustomerAsync(int id)
         {
             return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
@@ -38,9 +50,14 @@ namespace FoodRadar.DB
             return database.Table<Customer>().Where(i => i.email == email).FirstOrDefaultAsync();
         }
 
-        public Task<List<Customer>> GetItemsAsync()
+        public Task<List<Customer>> GetCustomersAsync()
         {
             return database.Table<Customer>().ToListAsync();
+        }
+
+        public Task<List<Rating>> getRatingsforCustomer(int id)
+        {
+            return database.Table<Rating>().Where(i => i.customerId == id).ToListAsync();
         }
 
         public Task<int> SaveRestaurant(Restaurant item)
@@ -62,7 +79,10 @@ namespace FoodRadar.DB
 
         public Customer getPassword(String email)
         {
-            List<Customer> l = database.QueryAsync<Customer>("select * from Customer where email = " + email).Result;
+            
+        string queryString = "SELECT * FROM [Customer] WHERE [email] = " + email;
+            Customer c = database.Table<Customer>().Where(i => i.email == email).FirstOrDefaultAsync().Result;
+        /*
             if (l.Count == 0)
             {
                 return null;
@@ -70,8 +90,9 @@ namespace FoodRadar.DB
             if (l.Count != 1)
             {
                 throw new Exception("more than 1 user with same email");
-            }
-            return l[0];
+            }*/
+
+            return c;
         }
 
         /*

@@ -16,7 +16,7 @@ namespace FoodRadar.ViewModels
         {
             customer.firstName = "Sigurdur";
             customer.lastName = "Jonsson";
-            App.Database.SaveItemAsync(customer);
+            App.Database.SaveCustomerAsync(customer);
         }
 
         public string GetFirstName
@@ -24,7 +24,7 @@ namespace FoodRadar.ViewModels
             
             get
             {
-                List<Customer> customers = App.Database.GetItemsAsync().Result;
+                List<Customer> customers = App.Database.GetCustomersAsync().Result;
                 return customers[0].firstName; }
         }
 
@@ -33,7 +33,7 @@ namespace FoodRadar.ViewModels
 
             get
             {
-                List<Customer> customers = App.Database.GetItemsAsync().Result;
+                List<Customer> customers = App.Database.GetCustomersAsync().Result;
                 return customers[0].lastName;
             }
         }
