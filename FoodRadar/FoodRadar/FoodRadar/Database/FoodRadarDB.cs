@@ -167,5 +167,9 @@ namespace FoodRadar.DB
            return database.DeleteAsync(item);
          }
          */
+         public Task<int> DeleteRatingAsync(Rating item)
+        {
+            return database.DeleteAsync(item);
+        }
     }
 }

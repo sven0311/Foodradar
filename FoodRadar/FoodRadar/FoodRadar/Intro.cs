@@ -47,7 +47,7 @@ namespace App
              //   var mainpage2 
             if (LoginViewModel.loggedIn)
             {
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new MainPage();
             }
             else
             {

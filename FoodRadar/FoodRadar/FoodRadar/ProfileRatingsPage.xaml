@@ -14,7 +14,7 @@
                         <ViewCell>
                             <StackLayout Padding="5" Orientation="Horizontal">
                                 <Label Text="{Binding desc}"/>
-                                <Button Text="More details"/>
+                                <!--<Button Text="More details"/>-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

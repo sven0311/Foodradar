@@ -16,11 +16,15 @@ namespace FoodRadar
 	{
 		public ProfileRatingsPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
             //var l = App.Database.getRatings().Result;
 
             listView.ItemsSource = buildList();
-		}
+            listView.ItemTapped += async (sender, e) => {
+
+                await Navigation.PushModalAsync(new ProfileRatingDetailPage((ListIt)e.Item));
+            };
+        }
 
         private List<ListIt> buildList()
         {
@@ -32,12 +36,15 @@ namespace FoodRadar
                 Meal m = App.Database.getMealById(r.mealId);
                 if (m != null)
                 {
+                    listIt.mealName = m.name;
                     listIt.addToString(m.name + " at ");
                     Restaurant rest = App.Database.getRestaurantById(m.restaurantId);
                     if (rest != null)
                     {
+                        listIt.restaurantName= rest.name;
                         listIt.addToString(rest.name + ": ");
                         listIt.addToString(r.rate + " Stars");
+                        listIt.rating = r;
                         l.Add(listIt);
                     }
                 }
@@ -52,9 +59,12 @@ namespace FoodRadar
         }
     }
 
-    class ListIt
+    public class ListIt
     {
         public String desc { get; set; }
+        public Rating rating { get; set; }
+        public String restaurantName { get; set; }
+        public String mealName { get; set; }
 
         public void addToString(String s)
         {

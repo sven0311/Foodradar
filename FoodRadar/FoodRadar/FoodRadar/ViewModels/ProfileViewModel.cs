@@ -10,13 +10,8 @@ namespace FoodRadar.ViewModels
     public class ProfileViewModel : ViewModelBase
     {
        
-        public Customer customer = new Customer();
-
         public ProfileViewModel()
         {
-            customer.firstName = "Sigurdur";
-            customer.lastName = "Jonsson";
-            App.Database.SaveCustomerAsync(customer);
         }
 
         public string GetFirstName
@@ -24,8 +19,8 @@ namespace FoodRadar.ViewModels
             
             get
             {
-                List<Customer> customers = App.Database.GetCustomersAsync().Result;
-                return customers[0].firstName; }
+                return LoginViewModel.customer.firstName;
+            }
         }
 
         public string GetLastName
@@ -33,8 +28,7 @@ namespace FoodRadar.ViewModels
 
             get
             {
-                List<Customer> customers = App.Database.GetCustomersAsync().Result;
-                return customers[0].lastName;
+                return LoginViewModel.customer.lastName;
             }
         }
 
