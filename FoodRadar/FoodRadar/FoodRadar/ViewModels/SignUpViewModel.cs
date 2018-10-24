@@ -1,4 +1,5 @@
-﻿using FoodRadar.Database.DatabaseModels;
+﻿using Acr.UserDialogs;
+using FoodRadar.Database.DatabaseModels;
 using PageNavSingleton;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,11 @@ namespace FoodRadar.ViewModels
 
                 if (x != null)
                 {
-                    //await DisplayAlert("Email already signed up", "Please try another email", "Try again");
+                    UserDialogs.Instance.Alert("Please try another email", "Email already signed up", "Try again");
                 }
                 else if (confirmPassword != password)
                 {
-                    //await DisplayAlert("Password Confirmation Fail", "", "Try again");
+                    UserDialogs.Instance.Alert("", "Password Confirmation Fail", "Try again");
                 }
                 else
                 {
@@ -39,7 +40,10 @@ namespace FoodRadar.ViewModels
 
                     await App.Database.SaveCustomerAsync(x);
 
-                    //await DisplayAlert("Sign up complete!", "", "Go Browse");
+                    LoginViewModel.customer = x;
+                    LoginViewModel.loggedIn = true;
+
+                    UserDialogs.Instance.Alert("Sign up complete!");
 
                     Application.Current.MainPage = new MainPage();
 

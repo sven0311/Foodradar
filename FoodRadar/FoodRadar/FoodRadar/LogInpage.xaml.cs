@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
 using FoodRadar.ViewModels;
+using PageNavSingleton;
 
 namespace FoodRadar
 {
@@ -24,10 +25,6 @@ namespace FoodRadar
             {
                 skip.IsVisible = false;
             }
-
-            MessagingCenter.Subscribe<LoginViewModel>(this, "blank", (sender) => {
-                // do something whenever the "Hi" message is sent
-            });
         }
     }
 

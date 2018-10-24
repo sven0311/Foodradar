@@ -43,6 +43,8 @@ namespace App
             await logo.RotateTo(360, 1000);
             //await logo.ScaleTo(0.9, 1500, Easing.Linear);
             //await logo.ScaleTo(150, 1200, Easing.Linear);
+           // var mainpage = new |NavigationPage
+             //   var mainpage2 
             if (LoginViewModel.loggedIn)
             {
                 Application.Current.MainPage = new NavigationPage(new MainPage());

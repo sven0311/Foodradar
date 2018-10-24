@@ -15,6 +15,7 @@ using Android.Support.V4.App;
 
 using Android.Support.V4.Content;
 using Xamarin.Forms.Maps;
+using Acr.UserDialogs;
 
 namespace FoodRadar.Droid
 {
@@ -28,6 +29,7 @@ namespace FoodRadar.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            UserDialogs.Init(this);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             //initialize map
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
