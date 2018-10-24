@@ -40,6 +40,19 @@ namespace FoodRadar.DB
                 return database.InsertAsync(item);
             }
         }
+
+        public Task<int> SaveMealAsync(Meal item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
         public Task<Customer> GetCustomerAsync(int id)
         {
             return database.Table<Customer>().Where(i => i.Id == id).FirstOrDefaultAsync();
@@ -60,7 +73,34 @@ namespace FoodRadar.DB
             return database.Table<Rating>().Where(i => i.customerId == id).ToListAsync();
         }
 
+        public Task<List<Rating>> getRatings()
+        {
+            return database.Table<Rating>().ToListAsync();
+        }
+
+        public Meal getMealById(int id)
+        {
+            return database.Table<Meal>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
+        }
+
+        public Restaurant getRestaurantById(int id)
+        {
+            return database.Table<Restaurant>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
+        }
+
         public Task<int> SaveRestaurant(Restaurant item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveRating(Rating item)
         {
             if (item.Id != 0)
             {
@@ -75,6 +115,11 @@ namespace FoodRadar.DB
         public Task<List<Restaurant>> GetRestaurants()
         {
             return database.Table<Restaurant>().ToListAsync();
+        }
+
+        public Task<List<Meal>> getMeal()
+        {
+            return database.Table<Meal>().ToListAsync();
         }
 
         public Customer getPassword(String email)
