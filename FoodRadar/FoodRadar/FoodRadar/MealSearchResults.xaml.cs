@@ -2,6 +2,7 @@
 using FoodRadar.Database.DatabaseModels;
 using FoodRadar.Views;
 using PageNavSingleton;
+using Plugin.Geolocator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace FoodRadar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MealSearchResults : ContentPage
     {
+        
         private PageNavigationManager navManager = PageNavigationManager.Instance;
         public List<Meal> meals;
 
@@ -27,25 +29,26 @@ namespace FoodRadar
         public MealSearchResults(List<Meal> mls)
         {
             InitializeComponent();
+
             meals = mls;
-           
             CreateList();
         }
 
         public List<MealListView> listifyMeals(List<Meal> meals)
         {
+
             List<MealListView> returnList = new List<MealListView>();
             foreach (var r in meals)
             {
-                returnList.Add(new MealListView(r.name, r.rating, r.price));
+                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId));
             }
 
             return returnList;
         }
 
-
         public void CreateList()
         {
+
             var listView = new ListView();
 
             listView.ItemsSource = listifyMeals(meals);
@@ -53,7 +56,7 @@ namespace FoodRadar
 
 
             listView.ItemTapped += async (sender, e) => {
-                Meal m = (Meal)e.Item;
+                MealListView m = (MealListView)e.Item;
                 Restaurant r = App.Database.GetRestaurantById(m.restaurantId);
                 RestaurantListView  rest = new RestaurantListView(r.name, r.rating, r.price);
 

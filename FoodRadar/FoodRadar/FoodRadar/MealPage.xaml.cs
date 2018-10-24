@@ -1,4 +1,5 @@
 ﻿using FoodRadar.Database.DatabaseModels;
+using FoodRadar.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace FoodRadar
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MealPage : ContentPage
 	{
-        Meal meal;
-		public MealPage (Meal meal)
+        MealListView meal;
+		public MealPage (MealListView meal)
 		{
 			InitializeComponent ();
             this.meal = meal;

@@ -48,6 +48,8 @@ namespace FoodRadar
             Meal m = new Meal()
             {
                 name = "Pizza",
+                rating = 3,
+                price = 25,
                 cuisineId = App.Database.GetCuisineId("Italian"),
                 restaurantId = App.Database.GetRestaurantId("Bean")
             };

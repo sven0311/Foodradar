@@ -1,4 +1,5 @@
 ﻿using FoodRadar.Database.DatabaseModels;
+using Plugin.Geolocator;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -126,15 +127,67 @@ namespace FoodRadar.DB
 
 
         // ALL SEARCH FUNCTIONS *************************************
-        public List<Meal> SearchMeals(string searchString)
+        public List<Meal> SearchMeals(string searchString, Xamarin.Forms.Labs.Services.Geolocation.Position userPos = null,int distanceFilter = 0, int priceFilter = 0)
         {
             Cuisine cuisineResults = database.Table<Cuisine>().Where(i => i.name.ToLower() == searchString.ToLower()).FirstOrDefaultAsync().Result;
             List<Meal> mealResults = database.Table<Meal>().Where(i => i.name.ToLower().Contains(searchString.ToLower()) ).ToListAsync().Result;
             List<Meal> meals = new List<Meal>();
+
+            
             
             if(cuisineResults != null) meals.AddRange(getMealsByCuisine(cuisineResults.Id));
             if(mealResults != null) meals.AddRange(mealResults);
+
+            List<int> mealsToRemove = new List<int>();
+            if (distanceFilter != 0 && userPos != null)
+            {
+                
+                //userPos = getUserPos().Result;
+                foreach(var m in meals)
+                {
+                    Restaurant rest = GetRestaurantById(m.restaurantId);
+
+                    var restPos = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                    {
+                        Latitude = rest.lon,
+                        Longitude = rest.lat
+                    };
+                    var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(userPos, restPos);
+                    if (distance > distanceFilter) mealsToRemove.Add(m.Id);
+                }
+                foreach (var i in mealsToRemove)
+                {
+                    meals.RemoveAll(meal => meal.Id == i);
+                }
+            }
+            if(priceFilter != 0)
+            {
+                mealsToRemove = new List<int>();
+                foreach(var m in meals)
+                {
+                    if (m.price < priceFilter) mealsToRemove.Add(m.Id);
+                }
+                foreach(var i in mealsToRemove)
+                {
+                    meals.RemoveAll(meal => meal.Id == i);
+                }
+            }
+
             return meals;
+        }
+        
+        private async Task<Xamarin.Forms.Labs.Services.Geolocation.Position> getUserPos()
+        {
+            Xamarin.Forms.Labs.Services.Geolocation.Position userPos = new Xamarin.Forms.Labs.Services.Geolocation.Position();
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+
+            var position = await locator.GetPositionAsync();
+
+            userPos.Latitude = position.Latitude;
+            userPos.Longitude = position.Longitude;
+
+            return userPos;
         }
 
 

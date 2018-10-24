@@ -4,11 +4,14 @@ using System.Text;
 using Xamarin.Forms;
 using FoodRadar;
 using PageNavSingleton;
+using Plugin.Geolocator;
 
 namespace FoodRadar.ViewModels
 {
     public class SearchViewModel : ViewModelBase
     {
+
+        Xamarin.Forms.Labs.Services.Geolocation.Position userPos = new Xamarin.Forms.Labs.Services.Geolocation.Position();
 
         private PageNavigationManager navManager = PageNavigationManager.Instance;
         public SearchViewModel()
@@ -16,9 +19,17 @@ namespace FoodRadar.ViewModels
             Search_Clicked = new Command(() => Search_Button());
         }
 
-        public void Search_Button()
+        public async void Search_Button()
         {
-            navManager.showMealSearchResultsPage(App.Database.SearchMeals(searchString));
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+
+            var position = await locator.GetPositionAsync();
+
+            userPos.Latitude = position.Latitude;
+            userPos.Longitude = position.Longitude;
+
+            navManager.showMealSearchResultsPage(App.Database.SearchMeals(searchString, userPos: userPos, distanceFilter: distance, priceFilter: price));
         }
 
         public Command Search_Clicked { protected set; get; }

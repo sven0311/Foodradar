@@ -27,6 +27,16 @@ namespace FoodRadar
             CreatePage();
 		}
 
+        public List<MealListView> listifyMeals(List<Meal> meals)
+        {
+            List<MealListView> returnList = new List<MealListView>();
+            foreach (var r in meals)
+            {
+                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId));
+            }
+
+            return returnList;
+        }
 
         public async void CreatePage()
         {
@@ -60,14 +70,16 @@ namespace FoodRadar
                 Children = { restaurantName, restaurantPrice, restaurantRating },
             };
 
+            
+
 
             var listView = new ListView();
-            List<Meal> restaurants = App.Database.GetMeals().Result;
+            List<MealListView> restaurants = listifyMeals(App.Database.GetMeals().Result);
             listView.ItemsSource = restaurants;
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
             listView.ItemTapped += async (sender, e) => {
-                navManager.showMealPage((Meal)e.Item);
+                navManager.showMealPage((MealListView)e.Item);
             };
 
             var parentStack = new StackLayout()

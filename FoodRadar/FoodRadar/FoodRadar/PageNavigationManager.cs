@@ -34,7 +34,7 @@ namespace PageNavSingleton
             navigation.PushAsync(new MealSearchResults(meals));
         }
 
-        public void showMealPage(Meal meal)
+        public void showMealPage(MealListView meal)
         {
             navigation.PushAsync(new MealPage(meal));
         }
