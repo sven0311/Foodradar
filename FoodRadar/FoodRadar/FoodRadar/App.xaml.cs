@@ -19,6 +19,7 @@ namespace FoodRadar
         public App()
         {
             InitializeComponent();
+
             MainPage = new Intro();
          
         }
