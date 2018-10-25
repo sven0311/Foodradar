@@ -14,17 +14,18 @@ namespace FoodRadar
         public MainPage()
         {
             this.BarBackgroundColor = Color.FromHex("#e21f4f");
-            var navigationPage = new NavigationPage(new Profile());
-            navigationPage.Icon = "round_person_white_24dp.png";
-            navigationPage.Title = "Profile";
-
-            navigationPage.BarBackgroundColor = Color.FromHex("#e21f4f");
+            
 
 
             Children.Add(new Search());
             Children.Add(new MapPage());
             if (LoginViewModel.loggedIn)
             {
+                var navigationPage = new NavigationPage(new Profile());
+                navigationPage.Icon = "round_person_white_24dp.png";
+                navigationPage.Title = "Profile";
+
+                navigationPage.BarBackgroundColor = Color.FromHex("#e21f4f");
                 Children.Add(navigationPage);
             }
             else

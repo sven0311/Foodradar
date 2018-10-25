@@ -31,22 +31,22 @@ namespace PageNavSingleton
 
         public void showMealSearchResultsPage(List<Meal> meals)
         {
-            navigation.PushAsync(new MealSearchResults(meals));
+            navigation.PushModalAsync(new MealSearchResults(meals));
         }
 
         public void showMealPage(MealListView meal)
         {
-            navigation.PushAsync(new MealPage(meal));
+            navigation.PushModalAsync(new MealPage(meal));
         }
 
         public void showRestaurantPage(RestaurantListView rest)
         {
-            navigation.PushAsync(new RestaurantPage(rest));
+            navigation.PushModalAsync(new RestaurantPage(rest));
         }
 
         public void showSignUpPage()
         {
-            navigation.PushAsync(new SignUpPage());
+            navigation.PushModalAsync(new SignUpPage());
         }
     }
 }
