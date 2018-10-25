@@ -23,6 +23,8 @@ namespace FoodRadar
 		public RestaurantPage (RestaurantListView restaurant)
 		{
 			InitializeComponent ();
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
+
             this.restaurant = restaurant;
             CreatePage();
 		}

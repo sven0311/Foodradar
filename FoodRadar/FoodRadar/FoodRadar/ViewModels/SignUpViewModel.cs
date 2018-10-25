@@ -12,11 +12,12 @@ namespace FoodRadar.ViewModels
     public class SignUpViewModel : ViewModelBase
     {
         public Command Button_ok { protected set; get; }
+        private PageNavigationManager navManager;
 
-        
 
         public SignUpViewModel()
         {
+            navManager = PageNavigationManager.Instance;
 
             Button_ok = new Command(async () => test());
         }
@@ -69,8 +70,8 @@ namespace FoodRadar.ViewModels
                 LoginViewModel.loggedIn = true;
 
                 UserDialogs.Instance.Alert("Sign up complete!", "", "Go Browse");
-
-                Application.Current.MainPage = new MainPage();
+                navManager.showMainPageAfterLoginPage();
+                
             }
         }
 

@@ -26,6 +26,13 @@ namespace FoodRadar.DB
             resetDatabase();
             addData();
 
+            //todo delete
+            Customer c = new Customer()
+            {
+                email = "a",
+                password = "a"
+            };
+            SaveItemAsync(c);
         }
 
         public void resetDatabase()

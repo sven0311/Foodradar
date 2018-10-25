@@ -29,6 +29,7 @@ namespace FoodRadar
         public MealSearchResults(List<Meal> mls)
         {
             InitializeComponent();
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
             meals = mls;
             CreateList();

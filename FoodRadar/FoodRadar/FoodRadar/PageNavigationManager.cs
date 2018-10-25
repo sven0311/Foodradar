@@ -31,17 +31,17 @@ namespace PageNavSingleton
 
         public void showMealSearchResultsPage(List<Meal> meals)
         {
-            navigation.PushModalAsync(new MealSearchResults(meals));
+            navigation.PushAsync(new MealSearchResults(meals));
         }
 
         public void showMealPage(MealListView meal)
         {
-            navigation.PushModalAsync(new MealPage(meal));
+            navigation.PushAsync(new MealPage(meal));
         }
 
         public void showRestaurantPage(RestaurantListView rest)
         {
-            navigation.PushModalAsync(new RestaurantPage(rest));
+            navigation.PushAsync(new RestaurantPage(rest));
         }
 
 
@@ -50,10 +50,10 @@ namespace PageNavSingleton
             navigation.PopAsync();
         }
 
-        public void popModalAsync()
-        {
-            navigation.PopModalAsync();
-        }
+        //public void popModalAsync()
+        //{
+        //    navigation.PopModalAsync();
+        //}
 
         public void showSignUpPage()
         {
