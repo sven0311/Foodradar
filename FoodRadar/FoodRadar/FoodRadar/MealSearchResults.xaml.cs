@@ -60,7 +60,7 @@ namespace FoodRadar
                 Restaurant r = App.Database.GetRestaurantById(m.restaurantId);
                 RestaurantListView  rest = new RestaurantListView(r.name, r.rating, r.price);
 
-                navManager.showRestaurantPage(rest);
+                //navManager.showRestaurantPage(rest);
                 navManager.showMealPage(m);
             };
 

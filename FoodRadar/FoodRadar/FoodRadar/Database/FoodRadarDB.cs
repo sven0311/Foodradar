@@ -192,7 +192,7 @@ namespace FoodRadar.DB
                         Longitude = rest.lat
                     };
                     var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(userPos, restPos);
-                    if (distance > distanceFilter) mealsToRemove.Add(m.Id);
+                    if (distance < distanceFilter) mealsToRemove.Add(m.Id);
                 }
                 foreach (var i in mealsToRemove)
                 {

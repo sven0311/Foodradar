@@ -48,5 +48,15 @@ namespace PageNavSingleton
         {
             navigation.PushModalAsync(new SignUpPage());
         }
+
+        public void popPageAsync()
+        {
+            navigation.PopAsync();
+        }
+
+        public void popModalAsync()
+        {
+            navigation.PopModalAsync();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FoodRadar.Database.DatabaseModels;
 using FoodRadar.Views;
+using PageNavSingleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,26 @@ namespace FoodRadar
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MealPage : ContentPage
 	{
+
+        public Command Restaurant_clicked { protected set; get; }
+        private PageNavigationManager navManager = PageNavigationManager.Instance;
         MealListView meal;
 		public MealPage (MealListView meal)
 		{
 			InitializeComponent ();
             this.meal = meal;
+
+            Restaurant_clicked = new Command(() =>
+            {
+                navManager.popModalAsync();
+                navManager.showRestaurantPage(new RestaurantListView(App.Database.GetRestaurantById(meal.restaurantId)));
+                
+            });
+
             constructPage();
 		}
+
+
 
         public void constructPage()
         {
@@ -54,6 +68,13 @@ namespace FoodRadar
                 Children = { mealName, mealPrice, mealRating },
             };
 
+            var Restaurant_button = new Button()
+            {
+                BindingContext = "SearchViewModel",
+                Command = Restaurant_clicked,
+
+            };
+
 
 
 
@@ -61,7 +82,7 @@ namespace FoodRadar
 
             var parentStack = new StackLayout()
             {
-                Children = { firstStack }
+                Children = { firstStack, Restaurant_button }
             };
 
             Padding = new Thickness(0, 20, 0, 0);
