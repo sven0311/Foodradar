@@ -50,10 +50,10 @@ namespace FoodRadar.ViewModels
             });
         }
 
-        //public AddReviewViewModel()
-        //{
+        public AddReviewViewModel()
+        {
 
-        //}
+        }
 
         private void addRatingToDatabase()
         {

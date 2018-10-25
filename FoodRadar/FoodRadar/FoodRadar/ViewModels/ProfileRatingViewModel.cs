@@ -22,7 +22,7 @@ namespace FoodRadar.ViewModels
 
         static ProfileRatingViewModel()
         {
-            all = buildList();
+            //all = buildList();
         }
 
 
@@ -31,7 +31,7 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return all;
+                return buildList();
             }
             set
             {

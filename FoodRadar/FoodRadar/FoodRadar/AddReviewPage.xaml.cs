@@ -11,18 +11,18 @@ using Xamarin.Forms.Xaml;
 
 namespace FoodRadar
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddReviewPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddReviewPage : ContentPage
+    {
         public Meal meal { get; set; }
-		public AddReviewPage (Meal meal)
-		{
-			InitializeComponent ();
+        public AddReviewPage(Meal meal)
+        {
+            InitializeComponent();
             this.meal = meal;
             AddReviewViewModel rm = new AddReviewViewModel(meal);
             BindingContext = rm;
-		}
+        }
 
 
-	}
+    }
 }

@@ -42,7 +42,7 @@ namespace FoodRadar
             if (e.SelectedItem != null)
             {
            
-                await Navigation.PushAsync(new ProfileRatingDetailPage((ProfileRatingViewModel) e.SelectedItem));
+                await Navigation.PushModalAsync(new ProfileRatingDetailPage((ProfileRatingViewModel) e.SelectedItem));
             }
 
             //await Navigation.PushModalAsync(new ProfileRatingDetailPage((ListIt)e.SelectedItem));
