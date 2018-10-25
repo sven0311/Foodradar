@@ -16,13 +16,9 @@ namespace FoodRadar
         public ProfileRatingDetailPage(ProfileRatingViewModel listIt)
         {
             InitializeComponent();
-            buildPage(listIt);
-        }
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
-        private async void Button_Back(object sender, EventArgs e)
-        {
-            //Application.Current.MainPage = new Profile();
-            await Navigation.PopModalAsync();
+            buildPage(listIt);
         }
 
         private void buildPage(ProfileRatingViewModel listIt)
@@ -63,7 +59,7 @@ namespace FoodRadar
             delete.Clicked += async (sender, args) =>
             {
                 await App.Database.DeleteRatingAsync(listIt.rating);
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             };
             
             var firstStack = new StackLayout()

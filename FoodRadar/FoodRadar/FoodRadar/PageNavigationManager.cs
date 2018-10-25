@@ -30,5 +30,26 @@ namespace PageNavSingleton
         {
             navigation.PushAsync(new SignUpPage());
         }
+
+        public void showMainPageAfterLoginPage()
+        {
+            navigation.PopToRootAsync();
+            navigation.PushAsync(new MainPage());
+        }
+
+        public void showProfileDetails()
+        {
+            navigation.PushAsync(new ProfileDetailPage());
+        }
+
+        public void showProfilePreferences()
+        {
+            navigation.PushAsync(new ProfilePreferencesPage());
+        }
+
+        public void showProfileRatings()
+        {
+            navigation.PushAsync(new ProfileRatingsPage());
+        }
     }
 }

@@ -18,9 +18,11 @@ namespace FoodRadar
         public AddReviewPage(Meal meal)
         {
             InitializeComponent();
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
             this.meal = meal;
             AddReviewViewModel rm = new AddReviewViewModel(meal);
             BindingContext = rm;
+
         }
 
 

@@ -19,6 +19,8 @@ namespace FoodRadar
 		public SignUpPage()
 		{
             InitializeComponent();
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
+
         }
 
     }

@@ -19,27 +19,12 @@ namespace FoodRadar.ViewModels
         public Rating rating { get; set; }
         public String restaurantName { get; set; }
         public String mealName { get; set; }
-
-        static ProfileRatingViewModel()
-        {
-            //all = buildList();
-        }
-
-
-
+        
         public IList<ProfileRatingViewModel> All
         {
             get
             {
                 return buildList();
-            }
-            set
-            {
-                if (all != value)
-                {
-                    all = value;
-                    OnPropertyChanged();
-                }
             }
         }
 
@@ -59,7 +44,7 @@ namespace FoodRadar.ViewModels
             }
         }
 
-        private static List<ProfileRatingViewModel> buildList()
+        private List<ProfileRatingViewModel> buildList()
         {
             List<ProfileRatingViewModel> l = new List<ProfileRatingViewModel>();
             foreach (Rating r in App.Database.getRatingsforCustomer(LoginViewModel.customer.Id).Result)

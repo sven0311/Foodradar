@@ -25,13 +25,13 @@
                     <Label Text="{Binding GetFullNameWithLineBreak}" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                 </Grid>
 
-            <Button Text="Profile Details" Clicked ="Button_Details" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+            <Button Text="Profile Details" Command ="{Binding Button_Details}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
             
             </Button>
-            <Button Text="Preferences" Clicked ="Button_Preferences" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+            <Button Text="Preferences" Command ="{Binding Button_Preferences}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
                 
             </Button>
-            <Button Text="My Ratings" Clicked ="Button_Ratings" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+            <Button Text="My Ratings" Command ="{Binding Button_Ratings}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
                 
             </Button>
         </StackLayout>

@@ -18,21 +18,8 @@ namespace FoodRadar
 		public ProfileRatingsPage ()
 		{
 			InitializeComponent();
-            //var l = App.Database.getRatings().Result;
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
-            //listView.ItemsSource = buildList();
-            //listView.ItemTapped += async (sender, e) => {
-
-              //  await Navigation.PushModalAsync(new ProfileRatingDetailPage((ListIt)e.Item));
-            //};
-        }
-
-        
-
-        private async void Button_Back(object sender, EventArgs e)
-        {
-            //Application.Current.MainPage = new Profile();
-            await Navigation.PopModalAsync();
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -41,8 +28,8 @@ namespace FoodRadar
 
             if (e.SelectedItem != null)
             {
-           
-                await Navigation.PushModalAsync(new ProfileRatingDetailPage((ProfileRatingViewModel) e.SelectedItem));
+
+                await Navigation.PushAsync(new ProfileRatingDetailPage((ProfileRatingViewModel)e.SelectedItem));
             }
 
             //await Navigation.PushModalAsync(new ProfileRatingDetailPage((ListIt)e.SelectedItem));

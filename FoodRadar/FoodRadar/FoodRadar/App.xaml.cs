@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using FoodRadar.Database.DatabaseModels;
 using PageNavSingleton;
 using System.Linq;
+using UIKit;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodRadar
