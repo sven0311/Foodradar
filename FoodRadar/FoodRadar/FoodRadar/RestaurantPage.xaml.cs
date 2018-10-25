@@ -13,21 +13,21 @@ using Xamarin.Forms.Xaml;
 
 namespace FoodRadar
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RestaurantPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RestaurantPage : ContentPage
+    {
 
         private PageNavigationManager navManager = PageNavigationManager.Instance;
 
-        RestaurantListView restaurant; 
-		public RestaurantPage (RestaurantListView restaurant)
-		{
-			InitializeComponent ();
+        RestaurantListView restaurant;
+        public RestaurantPage(RestaurantListView restaurant)
+        {
+            InitializeComponent();
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
             this.restaurant = restaurant;
             CreatePage();
-		}
+        }
 
         public List<MealListView> listifyMeals(List<Meal> meals)
         {
@@ -42,7 +42,7 @@ namespace FoodRadar
 
         public async void CreatePage()
         {
-            
+
 
             var restaurantName = new Label
             {
@@ -72,7 +72,7 @@ namespace FoodRadar
                 Children = { restaurantName, restaurantPrice, restaurantRating },
             };
 
-            
+
 
 
             var listView = new ListView();
@@ -80,13 +80,14 @@ namespace FoodRadar
             listView.ItemsSource = restaurants;
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
-            listView.ItemTapped += async (sender, e) => {
+            listView.ItemTapped += async (sender, e) =>
+            {
                 navManager.showMealPage((MealListView)e.Item);
             };
 
             var parentStack = new StackLayout()
             {
-                Children = {firstStack, listView}
+                Children = { firstStack, listView }
             };
 
             Padding = new Thickness(0, 20, 0, 0);
@@ -94,3 +95,7 @@ namespace FoodRadar
         }
     }
 }
+
+        
+
+      

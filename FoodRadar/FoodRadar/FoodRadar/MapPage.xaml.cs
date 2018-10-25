@@ -16,23 +16,33 @@ namespace FoodRadar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+
+        Xamarin.Forms.Labs.Services.Geolocation.Position userPos = new Xamarin.Forms.Labs.Services.Geolocation.Position();
         public MapPage()
         {
             InitializeComponent();
             setPins();
         }
 
-        private async void setPins()
+        public async void setLocation()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
 
-            //var position = await locator.GetPositionAsync();
+            var position = await locator.GetPositionAsync();
+            userPos.Latitude = position.Latitude;
+            userPos.Longitude = position.Longitude;
+        }
+
+        private async void setPins()
+        {
+
 
 
             //MyMap.MoveToRegion(
             //    MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), new Distance(500)));
             MyMap.MoveToRegion(
+
                 MapSpan.FromCenterAndRadius(new Position(-27.482276, 153.021552), new Distance(500)));
 
             var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
@@ -41,6 +51,7 @@ namespace FoodRadar
                 //Longitude = position.Latitude
                 Latitude = -27.482276,
                 Longitude = 153.021552
+
             };
 
             setPinsOnMap(App.Database.GetRestaurants().Result, pos2);
