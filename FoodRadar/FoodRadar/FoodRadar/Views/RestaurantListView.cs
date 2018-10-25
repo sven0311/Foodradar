@@ -7,8 +7,9 @@ namespace FoodRadar.Views
 {
     public class RestaurantListView
     {
-        public RestaurantListView(string name, int rating, int price)
+        public RestaurantListView(string name, int rating, int price, int id)
         {
+            this.id = id;
             this.name = name;
             string tmpString = "";
 
@@ -22,6 +23,7 @@ namespace FoodRadar.Views
 
         public RestaurantListView(Restaurant rest)
         {
+            id = rest.Id;
             this.name = rest.name;
             string tmpString = "";
 
@@ -32,7 +34,11 @@ namespace FoodRadar.Views
             for (int i = 0; i < rest.rating; i++) tmpString += "*";
             this.rating = tmpString;
 
+            
+
         }
+
+        public int id { get; set; }
 
         public string name { get; set; }
         public string rating { get; set; }
