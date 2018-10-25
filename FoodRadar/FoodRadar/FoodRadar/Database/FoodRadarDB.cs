@@ -164,6 +164,12 @@ namespace FoodRadar.DB
             }
         }
 
+       public Task<List<Meal>> GetMealsByResturant(int id)
+        {
+            List<Meal> m = database.Table<Meal>().Where(i => i.restaurantId == id).ToListAsync().Result;
+            return database.Table<Meal>().Where(i => i.restaurantId == id).ToListAsync();
+        }
+
         public Task<List<Restaurant>> GetRestaurants()
         {
             return database.Table<Restaurant>().ToListAsync();

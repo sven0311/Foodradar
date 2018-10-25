@@ -59,7 +59,7 @@ namespace FoodRadar
             listView.ItemTapped += async (sender, e) => {
                 MealListView m = (MealListView)e.Item;
                 Restaurant r = App.Database.GetRestaurantById(m.restaurantId);
-                RestaurantListView  rest = new RestaurantListView(r.name, r.rating, r.price);
+                RestaurantListView  rest = new RestaurantListView(r);
 
                 //navManager.showRestaurantPage(rest);
                 navManager.showMealPage(m);

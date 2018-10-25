@@ -76,8 +76,8 @@ namespace FoodRadar
 
 
             var listView = new ListView();
-            List<MealListView> restaurants = listifyMeals(App.Database.GetMeals().Result);
-            listView.ItemsSource = restaurants;
+            List<MealListView> meals = listifyMeals(App.Database.GetMealsByResturant(restaurant.id).Result);
+            listView.ItemsSource = meals;
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 
             listView.ItemTapped += async (sender, e) => {
