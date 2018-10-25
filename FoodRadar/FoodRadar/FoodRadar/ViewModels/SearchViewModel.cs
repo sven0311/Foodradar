@@ -26,9 +26,11 @@ namespace FoodRadar.ViewModels
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
 
-            var position = await locator.GetPositionAsync();
-            userPos.Latitude = position.Latitude;
-            userPos.Longitude = position.Longitude;
+            //var position = await locator.GetPositionAsync();
+            //userPos.Latitude = position.Latitude;
+            //userPos.Longitude = position.Longitude;
+            userPos.Longitude = 153.021552;
+            userPos.Latitude = -27.482276;
         }
 
         public async void Search_Button()

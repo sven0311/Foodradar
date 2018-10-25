@@ -41,6 +41,7 @@ namespace PageNavSingleton
 
         public void showRestaurantPage(RestaurantListView rest)
         {
+            //navigation.PopAsync();
             navigation.PushAsync(new RestaurantPage(rest));
         }
 
