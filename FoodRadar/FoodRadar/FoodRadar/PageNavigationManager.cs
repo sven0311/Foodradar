@@ -82,5 +82,10 @@ namespace PageNavSingleton
             navigation.PushAsync(new ProfileRatingsPage());
 
         }
+
+        public void showAddReviewPage(Meal meal)
+        {
+            navigation.PushAsync(new AddReviewPage(meal));
+        }
     }
 }

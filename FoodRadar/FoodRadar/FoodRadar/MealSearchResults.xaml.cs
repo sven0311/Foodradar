@@ -41,7 +41,7 @@ namespace FoodRadar
             List<MealListView> returnList = new List<MealListView>();
             foreach (var r in meals)
             {
-                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId));
+                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId, r.Id));
             }
 
             return returnList;

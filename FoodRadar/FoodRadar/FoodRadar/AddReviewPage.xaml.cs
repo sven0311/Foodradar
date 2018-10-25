@@ -20,8 +20,13 @@ namespace FoodRadar
             InitializeComponent();
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
             this.meal = meal;
-            AddReviewViewModel rm = new AddReviewViewModel(meal);
-            BindingContext = rm;
+            AddReviewViewModel rm = new AddReviewViewModel();
+            //this.BindingContext = rm;
+            rm.m = meal;
+
+        }
+        public AddReviewPage()
+        {
 
         }
 

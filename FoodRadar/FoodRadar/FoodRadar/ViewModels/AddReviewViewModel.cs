@@ -9,7 +9,7 @@ namespace FoodRadar.ViewModels
 {
     public class AddReviewViewModel : ViewModelBase
     {
-        Meal m;
+        public Meal m { get; set; }
         private int rating = 0;
         public Command Button_Rate { protected set; get; }
         public Command Button_star1 { protected set; get; }
@@ -19,10 +19,8 @@ namespace FoodRadar.ViewModels
         public Command Button_star5 { protected set; get; }
 
 
-        public AddReviewViewModel(Meal meal)
+        public AddReviewViewModel()
         {
-            m = meal;
-
             Button_Rate = new Command(() =>
             {
                 addRatingToDatabase();
@@ -48,11 +46,6 @@ namespace FoodRadar.ViewModels
             {
                 rating = 5;
             });
-        }
-
-        public AddReviewViewModel()
-        {
-
         }
 
         private void addRatingToDatabase()
