@@ -23,7 +23,7 @@ namespace FoodRadar.DB
             command.ExecuteQuery<Customer>(); */
              database.CreateTableAsync<Meal>().Wait();
             database.CreateTableAsync<Rating>().Wait();
-
+            resetDatabase();
             addData();
 
         }
@@ -167,17 +167,50 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
         }
 
+        private static double DegreesToRadians(double degrees)
+        {
+            return degrees * Math.PI / 180.0;
+        }
+
+        public static double CalculateDistance(Xamarin.Forms.Labs.Services.Geolocation.Position location1, Xamarin.Forms.Labs.Services.Geolocation.Position location2)
+        {
+            double circumference = 40000.0; // Earth's circumference at the equator in km
+            double distance = 0.0;
+
+            //Calculate radians
+            double latitude1Rad = DegreesToRadians(location1.Latitude);
+            double longitude1Rad = DegreesToRadians(location1.Longitude);
+            double latititude2Rad = DegreesToRadians(location2.Latitude);
+            double longitude2Rad = DegreesToRadians(location2.Longitude);
+
+            double logitudeDiff = Math.Abs(longitude1Rad - longitude2Rad);
+
+            if (logitudeDiff > Math.PI)
+            {
+                logitudeDiff = 2.0 * Math.PI - logitudeDiff;
+            }
+
+            double angleCalculation =
+                Math.Acos(
+                    Math.Sin(latititude2Rad) * Math.Sin(latitude1Rad) +
+                    Math.Cos(latititude2Rad) * Math.Cos(latitude1Rad) * Math.Cos(logitudeDiff));
+
+            distance = circumference * angleCalculation / (2.0 * Math.PI);
+
+            return distance;
+        }
 
         // ALL SEARCH FUNCTIONS *************************************
         public List<Meal> SearchMeals(string searchString, Xamarin.Forms.Labs.Services.Geolocation.Position userPos = null,int distanceFilter = 0, int priceFilter = 0)
         {
+            var cuisines = database.Table<Cuisine>().ToListAsync().Result;
             Cuisine cuisineResults = database.Table<Cuisine>().Where(i => i.name.ToLower() == searchString.ToLower()).FirstOrDefaultAsync().Result;
             List<Meal> mealResults = database.Table<Meal>().Where(i => i.name.ToLower().Contains(searchString.ToLower()) ).ToListAsync().Result;
             List<Meal> meals = new List<Meal>();
 
-            
-            
-            if(cuisineResults != null) meals.AddRange(getMealsByCuisine(cuisineResults.Id));
+            var ms = database.Table<Meal>().ToListAsync().Result;
+
+            if (cuisineResults != null) meals.AddRange(getMealsByCuisine(cuisineResults.Id));
             if(mealResults != null) meals.AddRange(mealResults);
 
             List<int> mealsToRemove = new List<int>();
@@ -191,11 +224,13 @@ namespace FoodRadar.DB
 
                     var restPos = new Xamarin.Forms.Labs.Services.Geolocation.Position()
                     {
-                        Latitude = rest.lon,
-                        Longitude = rest.lat
+                        Latitude = rest.lat,
+                        Longitude = rest.lon
                     };
-                    var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(userPos, restPos);
-                    if (distance > distanceFilter) mealsToRemove.Add(m.Id);
+
+
+                    var distance = CalculateDistance(restPos, userPos);
+                    if (distance > (distanceFilter/1000)) mealsToRemove.Add(m.Id);
                 }
                 foreach (var i in mealsToRemove)
                 {
@@ -243,11 +278,19 @@ namespace FoodRadar.DB
         {
             return database.Table<Meal>().ToListAsync();
         }
+        
+        
 
         public int GetCuisineId(string cuisine)
         {
             Cuisine c = database.Table<Cuisine>().Where(i => i.name == cuisine).FirstOrDefaultAsync().Result;
             return c.Id;
+        }
+
+        public Cuisine GetCuisineById(int id)
+        {
+            Cuisine c = database.Table<Cuisine>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
+            return c;
         }
 
         public int GetRestaurantId(string restaurant)
@@ -378,17 +421,24 @@ namespace FoodRadar.DB
 "mymeal.com",
 };
 
-///pupulate database
+            ///pupulate database
 
-            double bla = -27.470125;
-            double bla2 = 53.021072;
+            double orig1 = -27.4707 - 0.015;
+            double orig2 = 153.024 - 0.015;
+            double bla;
+            double bla2;
             Random rnd = new Random();
 
 
             for (int i = 0; i < RestaurantName.Count; i++)
             {
-                bla = bla + 0.0001 * rnd.Next(1, 101);
-                bla2 = bla2 + 0.0001 * rnd.Next(1, 101);
+                int rnd1 = rnd.Next(1, 150);
+                int rnd2 = rnd.Next(1, 150);
+                bla = orig1 + (0.0001 * rnd1);
+
+                bla2 = orig2 + (0.0001 * rnd2);
+                
+
 
                 Restaurant restaurant = new Restaurant
                 {
@@ -486,9 +536,10 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Thai style Fried Noodles",
 "Fried Rice",
 "Green Chicken Curry",
+"Piri piri chicken"
 };
 
-for (int i = 0; i< Cuisines.Count - 1; i++)
+for (int i = 0; i< Cuisines.Count; i++)
 {
 
 for(int j = 0; j< 5; j++)
@@ -496,12 +547,11 @@ for(int j = 0; j< 5; j++)
 
                     Meal meal = new Meal
                     {
-
                         name = MealName[i * 5 + j],
 
-                        cuisineId = i,
+                        cuisineId = GetCuisineId(Cuisines[i]),
 
-                        restaurantId = (i * 5) + j,
+                        restaurantId = GetRestaurantId(RestaurantName[(i * 5) + j]),
 
                         price = rnd.Next(10, 51),
 

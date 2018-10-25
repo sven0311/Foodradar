@@ -18,7 +18,7 @@ namespace FoodRadar
         public App()
         {
             InitializeComponent();
-            App.Database.resetDatabase();
+            
             MainPage = new Intro();
             //loadDataInDb();
         }
