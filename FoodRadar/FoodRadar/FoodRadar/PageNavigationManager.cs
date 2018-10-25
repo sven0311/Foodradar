@@ -44,10 +44,6 @@ namespace PageNavSingleton
             navigation.PushModalAsync(new RestaurantPage(rest));
         }
 
-        public void showSignUpPage()
-        {
-            navigation.PushModalAsync(new SignUpPage());
-        }
 
         public void popPageAsync()
         {
@@ -57,6 +53,32 @@ namespace PageNavSingleton
         public void popModalAsync()
         {
             navigation.PopModalAsync();
+        }
+
+        public void showSignUpPage()
+        {
+            navigation.PushAsync(new SignUpPage());
+        }
+
+        public void showMainPageAfterLoginPage()
+        {
+            navigation.PopToRootAsync();
+            navigation.PushAsync(new MainPage());
+        }
+
+        public void showProfileDetails()
+        {
+            navigation.PushAsync(new ProfileDetailPage());
+        }
+
+        public void showProfilePreferences()
+        {
+            navigation.PushAsync(new ProfilePreferencesPage());
+        }
+
+        public void showProfileRatings()
+        {
+            navigation.PushAsync(new ProfileRatingsPage());
         }
     }
 }

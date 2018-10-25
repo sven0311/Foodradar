@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FoodRadar.ViewModels"
+             x:Class="FoodRadar.AddReviewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BindingContext>
+                <local:AddReviewViewModel/>
+            </StackLayout.BindingContext>
+
+            <Label Text="Review"/>
+
+            <Label Text="{Binding Rest}"/>
+            <Label Text="{Binding MealName}"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="1" Command="{Binding Button_star1}"/>
+                <Button Text="2" Command="{Binding Button_star2}"/>
+                <Button Text="3" Command="{Binding Button_star3}"/>
+                <Button Text="4" Command="{Binding Button_star4}"/>
+                <Button Text="5" Command="{Binding Button_star5}"/>
+            </StackLayout>
+            <Entry Placeholder="Optional Description" Text="{Binding Desc}"/>
+            <Button Text="Rate" Command="{Binding Button_Rate}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -3,29 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FoodRadar.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static FoodRadar.ProfileRatingsPage;
 
 namespace FoodRadar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileRatingDetailPage : ContentPage
     {
-
-        public ProfileRatingDetailPage(ListIt listIt)
+        public ProfileRatingDetailPage(ProfileRatingViewModel listIt)
         {
             InitializeComponent();
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
+
             buildPage(listIt);
         }
 
-        private async void Button_Back(object sender, EventArgs e)
-        {
-            //Application.Current.MainPage = new Profile();
-            await Navigation.PopModalAsync();
-        }
-
-        private void buildPage(ListIt listIt)
+        private void buildPage(ProfileRatingViewModel listIt)
         {
             var restaurant = new Label
             {
@@ -63,7 +59,7 @@ namespace FoodRadar
             delete.Clicked += async (sender, args) =>
             {
                 await App.Database.DeleteRatingAsync(listIt.rating);
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             };
             
             var firstStack = new StackLayout()

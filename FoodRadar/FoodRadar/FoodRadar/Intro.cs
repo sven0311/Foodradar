@@ -47,12 +47,12 @@ namespace App
              //   var mainpage2 
             if (LoginViewModel.loggedIn)
             {
-                Application.Current.MainPage = new MainPage();
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             else
             {
 
-                Application.Current.MainPage = new NavigationPage(new FoodRadar.LogInpage(false));
+                Application.Current.MainPage = new NavigationPage(new LogInpage(false));
             }
             PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
         }

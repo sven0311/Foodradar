@@ -9,6 +9,7 @@ using FoodRadar.Database.DatabaseModels;
 using PageNavSingleton;
 using System.Linq;
 
+
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodRadar
 {
@@ -25,53 +26,6 @@ namespace FoodRadar
 
         private void loadDataInDb()
         {
-            
-            var res = new Restaurant()
-            {
-                name = "Bean",
-                price = 2,
-                desc = "lovely local small cafe/bar",
-                address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
-                lon = -27.473210,
-                lat = 153.025800,
-                url = "https://beanbrisbane.com.au/",
-                rating = 3
-            };
-            App.Database.SaveItemAsync(res);
-
-            Cuisine c = new Cuisine()
-            {
-                name = "Italian",
-            };
-            App.Database.SaveItemAsync(c);
-
-
-            Meal m = new Meal()
-            {
-                name = "Pizza",
-                rating = 3,
-                price = 25,
-                cuisineId = App.Database.GetCuisineId("Italian"),
-                restaurantId = App.Database.GetRestaurantId("Bean")
-            };
-            App.Database.SaveItemAsync(m);
-
-
-            var res2 = new Restaurant()
-            {
-                name = "Hidden Bean",
-                price = 3,
-                desc = "not so lovely local small cafe/bar",
-                address = "Some other street, Laneway Basement, Brisbane City QLD 4000",
-                lon = -24.473210,
-                lat = 152.025800,
-                url = "https://beanbrisbane.com.au/",
-                rating = 2
-            };
-
-            App.Database.SaveItemAsync(res2);
-
-
             var cust1 = new Customer()
             {
                 email = "a",
@@ -91,13 +45,8 @@ namespace FoodRadar
             };
             App.Database.SaveItemAsync(cust2);
 
-            var meal1 = new Meal()
-            {
-                name = "Schnitzel",
-                restaurantId = App.Database.GetRestaurants().Result.First().Id,
-            };
-            App.Database.SaveMealAsync(meal1);
-            
+
+
             int mealId = App.Database.GetMeals().Result.First().Id;
             int cust1ID = App.Database.getPassword("a").Id;
             var rating1 = new Rating()

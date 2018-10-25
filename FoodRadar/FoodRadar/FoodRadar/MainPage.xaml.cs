@@ -13,6 +13,7 @@ namespace FoodRadar
     {
         public MainPage()
         {
+            InitializeComponent();
             this.BarBackgroundColor = Color.FromHex("#e21f4f");
             
 
