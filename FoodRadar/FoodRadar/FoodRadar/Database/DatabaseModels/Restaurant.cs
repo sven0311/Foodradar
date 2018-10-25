@@ -34,7 +34,7 @@ namespace FoodRadar.Database.DatabaseModels
 
         [Column("OpeningHours")]
         public string openingHours { get; set; }
-
+        public string OpeningHours { get; internal set; }
         [Column("URL")]
         public string url { get; set; }
 
