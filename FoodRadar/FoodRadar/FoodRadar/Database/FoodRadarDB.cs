@@ -588,10 +588,14 @@ for(int j = 0; j< 5; j++)
         }
 
 
-            
+
+        public Task<int> DeleteCustomerAsync(Customer item)
+        {
+            return database.DeleteAsync(item);
+        }
 
 
-         public Task<int> DeleteRatingAsync(Rating item)
+        public Task<int> DeleteRatingAsync(Rating item)
         {
             return database.DeleteAsync(item);
         }

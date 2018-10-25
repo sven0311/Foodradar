@@ -1,24 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodRadar.ProfilePreferencesPage">
+             xmlns:local="clr-namespace:FoodRadar.ViewModels"
+             x:Class="FoodRadar.ProfilePreferencesPage"
+             Title="Profile Prefrences" Icon="round_person_white_24dp.png"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Profile Preferences"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <!--<ListView>
-                <ListView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>System of measurement: Km</x:String>
-                        <x:String>Privacy: Public Ratings</x:String>
-                        <x:String>Change Password</x:String>
-                        <x:String>Manage Notifications</x:String>
-                        <x:String>Delete Account</x:String>
-                    </x:Array>
-                </ListView.ItemsSource>
-            </ListView>-->
+        <StackLayout Spacing="0">
+            <StackLayout.BindingContext>
+                <local:ProfilePrefViewModel />
+            </StackLayout.BindingContext>
+            <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
 
-            <ListView ItemsSource = "{Binding MySource}"/>
+            </Button>
 
+            <!-- This grid positions the persons picture next to their name -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="https://static.thenounproject.com/png/630729-200.png" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding GetFullNameWithLineBreak}" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+            </Grid>
+
+            <Button Text="Change Password" Command ="{Binding Button_ChangePassword}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+
+            </Button>
+            <Button Text="Delete Account" Command ="{Binding Button_DeleteAccount}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f">
+
+            </Button>
+            <Button Text="Change System Of Mesurements km/mi" Command ="{Binding Button_Messurements}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f" >
+
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
