@@ -9,7 +9,7 @@
 
             </Button>
             <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{x:Binding local:ProfileRatingViewModel}"
+            <ListView ItemsSource="{x:Static local:ProfileRatingViewModel}"
                       ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
