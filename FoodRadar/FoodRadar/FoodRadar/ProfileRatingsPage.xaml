@@ -5,17 +5,20 @@
              x:Class="FoodRadar.ProfileRatingsPage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.BindingContext>
+                <local:ProfileRatingViewModel/>
+            </StackLayout.BindingContext>
             <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
 
             </Button>
             <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{x:Binding local:ProfileRatingViewModel}"
+            <ListView ItemsSource="{Binding All}"
                       ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="5" Orientation="Horizontal">
-                                <Label Text="{Binding desc}"/>
+                                <Label Text="{Binding Desc}"/>
                                 <!--<Button Text="More details"/>-->
                             </StackLayout>
                         </ViewCell>

@@ -8,6 +8,8 @@ namespace FoodRadar.ViewModels
 {
     public class ProfileRatingViewModel : ViewModelBase
     {
+        public static IList<ProfileRatingViewModel> all;
+
         public void addToString(String s)
         {
             desc += s;
@@ -20,10 +22,42 @@ namespace FoodRadar.ViewModels
 
         static ProfileRatingViewModel()
         {
-            All = buildList();
+            all = buildList();
         }
 
-        public static IList<ProfileRatingViewModel> All { private set; get; }
+
+
+        public IList<ProfileRatingViewModel> All
+        {
+            get
+            {
+                return all;
+            }
+            set
+            {
+                if (all != value)
+                {
+                    all = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public String Desc
+        {
+            get
+            {
+                return desc;
+            }
+            set
+            {
+                if(desc != value)
+                {
+                    desc = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         private static List<ProfileRatingViewModel> buildList()
         {
