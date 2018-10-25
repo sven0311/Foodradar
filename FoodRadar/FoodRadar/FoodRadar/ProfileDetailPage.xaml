@@ -8,13 +8,17 @@
             <StackLayout.BindingContext>
                 <local:ProfileDetailViewModel/>
             </StackLayout.BindingContext>
-            <Label Text="Profile Details"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="First Name"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding FirstName}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="Last Name"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding LastName}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="E-Mail"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding Email}"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+
+            <Label Text="Profile Details"  FontSize="Medium"  HorizontalOptions="CenterAndExpand" Margin="10, 15"/>
+
+
+            <Label Text="{Binding FirstName}"  FontSize="Default"  HorizontalTextAlignment="Start" Margin="30, 5"/>
+
+            <Label Text="{Binding LastName}"  FontSize="Default" HorizontalTextAlignment="Start" Margin="30, 5"/>
+
+            <Label Text="{Binding Email}"  FontSize="Default" HorizontalTextAlignment="Start"  Margin="30, 5"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

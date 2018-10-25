@@ -4,7 +4,7 @@
              x:Class="FoodRadar.ProfilePreferencesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Profile Preferences"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Profile Preferences"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10, 15"/>
             <ListView>
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

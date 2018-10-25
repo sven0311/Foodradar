@@ -13,7 +13,7 @@
 
             
                 <!-- This grid positions the persons picture next to their name -->
-                <Grid>
+            <Grid Margin="10, 5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
