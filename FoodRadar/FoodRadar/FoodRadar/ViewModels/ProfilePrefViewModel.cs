@@ -24,9 +24,9 @@ namespace FoodRadar.ViewModels
         {
             MySource = new ObservableCollection<string>
             {
-                "First Entry",
-                "Second Entry",
-                "Third Entry",
+                "Change Password",
+                "Delete Account",
+                "Messurments Mi/km",
             };
         }
 
