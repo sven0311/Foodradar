@@ -1,4 +1,4 @@
-
+    
 ﻿using FoodRadar.DB;
 using System.IO;
 ﻿using App;
@@ -20,29 +20,11 @@ namespace FoodRadar
             InitializeComponent();
             App.Database.resetDatabase();
             MainPage = new Intro();
-            loadDataInDb();
+            //loadDataInDb();
         }
 
         private void loadDataInDb()
         {
-            var res = new Restaurant()
-            {
-                name = "Bean",
-                price = 2,
-                desc = "lovely local small cafe/bar",
-                address = "181 George St, Laneway Basement, Brisbane City QLD 4000",
-                lat = -27.473210,
-                lon = 153.025800,
-                url = "https://beanbrisbane.com.au/"
-            };
-            App.Database.SaveRestaurant(res);
-
-            var meal1 = new Meal()
-            {
-                name = "Schnitzel",
-                restaurantId = App.Database.GetRestaurants().Result.First().Id,
-            };
-            App.Database.SaveMealAsync(meal1);
 
             var cust1 = new Customer()
             {
@@ -51,7 +33,8 @@ namespace FoodRadar
                 firstName = "Siggi",
                 lastName = "Jonsson",
             };
-            App.Database.SaveCustomerAsync(cust1);
+
+            App.Database.SaveItemAsync(cust1);
 
             var cust2 = new Customer()
             {
@@ -60,11 +43,10 @@ namespace FoodRadar
                 firstName = "Sven",
                 lastName = "Andabaka"
             };
-            App.Database.SaveCustomerAsync(cust2);
+            App.Database.SaveItemAsync(cust2);
 
             
-
-            int mealId = App.Database.getMeal().Result.First().Id;
+            int mealId = App.Database.GetMeals().Result.First().Id;
             int cust1ID = App.Database.getPassword("a").Id;
             var rating1 = new Rating()
             {
@@ -94,6 +76,7 @@ namespace FoodRadar
             App.Database.SaveRating(rating3);
 
             
+
         }
 
         public static FoodRadarDB Database

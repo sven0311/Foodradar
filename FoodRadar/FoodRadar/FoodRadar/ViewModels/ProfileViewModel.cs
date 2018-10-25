@@ -12,6 +12,8 @@ namespace FoodRadar.ViewModels
        
         public ProfileViewModel()
         {
+
+
         }
 
         public string GetFirstName

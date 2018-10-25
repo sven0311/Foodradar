@@ -1,4 +1,5 @@
 ﻿using FoodRadar.Database.DatabaseModels;
+using Plugin.Geolocator;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,19 @@ namespace FoodRadar.DB
         public SQLiteAsyncConnection database { get; }
         public FoodRadarDB(string dbPath)
         {
+            
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
             database.CreateTableAsync<Restaurant>().Wait();
             database.CreateTableAsync<Cuisine>().Wait();
-            database.CreateTableAsync<Meal>().Wait();
+            /*SQLiteCommand command = new SQLiteCommand(database);
+            command.CommandText = "Query ";
+            command.ExecuteQuery<Customer>(); */
+             database.CreateTableAsync<Meal>().Wait();
             database.CreateTableAsync<Rating>().Wait();
+
+            addData();
+
         }
 
         public void resetDatabase()
@@ -29,7 +37,44 @@ namespace FoodRadar.DB
             database.DeleteAllAsync<Meal>();
         }
 
-        public Task<int> SaveCustomerAsync(Customer item)
+
+        public Task<int> SaveItemAsync(Customer item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveItemAsync(Restaurant item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveItemAsync(Meal item)
+        {
+            if (item.Id != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> SaveItemAsync(Cuisine item)
         {
             if (item.Id != 0)
             {
@@ -117,10 +162,100 @@ namespace FoodRadar.DB
             return database.Table<Restaurant>().ToListAsync();
         }
 
-        public Task<List<Meal>> getMeal()
+        public Restaurant GetRestaurantById(int id)
+        {
+            return database.Table<Restaurant>().Where(i => i.Id == id).FirstOrDefaultAsync().Result;
+        }
+
+
+        // ALL SEARCH FUNCTIONS *************************************
+        public List<Meal> SearchMeals(string searchString, Xamarin.Forms.Labs.Services.Geolocation.Position userPos = null,int distanceFilter = 0, int priceFilter = 0)
+        {
+            Cuisine cuisineResults = database.Table<Cuisine>().Where(i => i.name.ToLower() == searchString.ToLower()).FirstOrDefaultAsync().Result;
+            List<Meal> mealResults = database.Table<Meal>().Where(i => i.name.ToLower().Contains(searchString.ToLower()) ).ToListAsync().Result;
+            List<Meal> meals = new List<Meal>();
+
+            
+            
+            if(cuisineResults != null) meals.AddRange(getMealsByCuisine(cuisineResults.Id));
+            if(mealResults != null) meals.AddRange(mealResults);
+
+            List<int> mealsToRemove = new List<int>();
+            if (distanceFilter != 0 && userPos != null)
+            {
+                
+                //userPos = getUserPos().Result;
+                foreach(var m in meals)
+                {
+                    Restaurant rest = GetRestaurantById(m.restaurantId);
+
+                    var restPos = new Xamarin.Forms.Labs.Services.Geolocation.Position()
+                    {
+                        Latitude = rest.lon,
+                        Longitude = rest.lat
+                    };
+                    var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(userPos, restPos);
+                    if (distance > distanceFilter) mealsToRemove.Add(m.Id);
+                }
+                foreach (var i in mealsToRemove)
+                {
+                    meals.RemoveAll(meal => meal.Id == i);
+                }
+            }
+            if(priceFilter != 0)
+            {
+                mealsToRemove = new List<int>();
+                foreach(var m in meals)
+                {
+                    if (m.price < priceFilter) mealsToRemove.Add(m.Id);
+                }
+                foreach(var i in mealsToRemove)
+                {
+                    meals.RemoveAll(meal => meal.Id == i);
+                }
+            }
+
+            return meals;
+        }
+        
+        private async Task<Xamarin.Forms.Labs.Services.Geolocation.Position> getUserPos()
+        {
+            Xamarin.Forms.Labs.Services.Geolocation.Position userPos = new Xamarin.Forms.Labs.Services.Geolocation.Position();
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 20;
+
+            var position = await locator.GetPositionAsync();
+
+            userPos.Latitude = position.Latitude;
+            userPos.Longitude = position.Longitude;
+
+            return userPos;
+        }
+
+
+        public List<Meal> getMealsByCuisine(int cuisineId)
+        {
+            return database.Table<Meal>().Where(i => i.cuisineId == cuisineId).ToListAsync().Result;
+            
+        }
+        // ALL SEARCH FUNCTIONS **************************************
+        public Task<List<Meal>> GetMeals()
         {
             return database.Table<Meal>().ToListAsync();
         }
+
+        public int GetCuisineId(string cuisine)
+        {
+            Cuisine c = database.Table<Cuisine>().Where(i => i.name == cuisine).FirstOrDefaultAsync().Result;
+            return c.Id;
+        }
+
+        public int GetRestaurantId(string restaurant)
+        {
+            Restaurant r = database.Table<Restaurant>().Where(i => i.name == restaurant).FirstOrDefaultAsync().Result;
+            return r.Id;
+        }
+
 
         public Customer getPassword(String email)
         {
@@ -274,6 +409,8 @@ namespace FoodRadar.DB
                     url = Url[rnd.Next(0, Url.Count - 1)],
 
                 };
+
+                SaveItemAsync(restaurant);
             }
 
 
@@ -299,8 +436,8 @@ for (int i = 0; i< Cuisines.Count; i++)
                     name = Cuisines[i],
 
                 };
-
-}
+                SaveItemAsync(cuisine);
+            }
 
             //////
 
@@ -351,10 +488,10 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Green Chicken Curry",
 };
 
-for (int i = 0; i< Cuisines.Count; i++)
+for (int i = 0; i< Cuisines.Count - 1; i++)
 {
 
-for(int j = 1; j< 6; j++)
+for(int j = 0; j< 5; j++)
 {
 
                     Meal meal = new Meal
@@ -371,6 +508,7 @@ for(int j = 1; j< 6; j++)
                         rating = rnd.Next(1, 6),
 
                     };
+                    SaveItemAsync(meal);
   } 
 }
 

@@ -12,12 +12,45 @@
                 </StackLayout.BindingContext>
                 <Label Text="What do you feel like?" FontSize="Large"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <Label Text="Meal or Category:" FontSize="Medium"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
-                <Entry Placeholder="..." Margin="0, 0,0,20"></Entry>
-                <Label Text="Distance:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
-                <Slider Value="{Binding distance}" Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
-                <Label Text="Price:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
-                <Slider  Minimum = "0" Maximum="100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
-                <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" />
+                <Entry Text="{Binding SearchString}" Placeholder="..." Margin="0, 0,0,20"></Entry>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.25*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Distance:" Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+                    <Label Text="{Binding Distance}" Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+                    <Label Text="m" Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+                    
+                </Grid>
+
+
+
+                <Slider Value="{Binding Distance}"  Maximum="15000" Minimum = "100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+                
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.25*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Price:" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+                    <Label Text="{Binding Price}" Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+                    <Label Text="$" Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0, 0"/>
+
+                </Grid>
+
+                <Slider Value="{Binding Price}"  Maximum="100" Minimum="0" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+                <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" Command="{Binding Search_Clicked}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

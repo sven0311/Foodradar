@@ -63,7 +63,7 @@ namespace FoodRadar.ViewModels
                     email = this.email,
                 };
 
-                await App.Database.SaveCustomerAsync(x);
+                await App.Database.SaveItemAsync(x);
 
                 LoginViewModel.customer = x;
                 LoginViewModel.loggedIn = true;

@@ -16,6 +16,8 @@ namespace FoodRadar.Database.DatabaseModels
         [Column("Name")]
         public string name { get; set; }
 
+
+
         [NotNull, Column("CuisineId")]
         public int cuisineId { get; set; }
 

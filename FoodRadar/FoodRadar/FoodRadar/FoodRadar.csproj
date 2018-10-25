@@ -22,15 +22,33 @@
     <Compile Update="MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="MealSearchResults.xaml.cs">
+      <DependentUpon>MealSearchResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RestaurantSearchResults.xaml.cs">
+      <DependentUpon>RestaurantSearchResults.xaml</DependentUpon>
+    </Compile>
     <Compile Update="SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
-	</Compile>
+	  </Compile>
     <Compile Update="ProfilePreferencesPage.xaml.cs">
       <DependentUpon>ProfilePreferencesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="MealPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MealSearchResults.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RestaurantPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RestaurantSearchResults.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MapPage.xaml">
 
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
