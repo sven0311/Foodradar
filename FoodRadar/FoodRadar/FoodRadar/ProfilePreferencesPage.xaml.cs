@@ -14,9 +14,15 @@ namespace FoodRadar
 	{
 		public ProfilePreferencesPage ()
 		{
-			InitializeComponent ();
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
+			InitializeComponent ();
+            BindingContext = new ViewModels.ProfilePrefViewModel();
+		}
+
+        private async void Button_Back(object sender, EventArgs e)
+        {
+            //Application.Current.MainPage = new Profile();
+            await Navigation.PopModalAsync();
         }
     }
 }

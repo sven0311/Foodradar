@@ -16,6 +16,12 @@
                     </x:Array>
                 </ListView.ItemsSource>
             </ListView>
+
+            <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
+
+            </Button>
+            <ListView ItemsSource = "{Binding MySource}"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

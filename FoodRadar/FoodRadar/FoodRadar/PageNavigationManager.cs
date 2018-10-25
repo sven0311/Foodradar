@@ -79,6 +79,7 @@ namespace PageNavSingleton
         public void showProfileRatings()
         {
             navigation.PushAsync(new ProfileRatingsPage());
+
         }
     }
 }
