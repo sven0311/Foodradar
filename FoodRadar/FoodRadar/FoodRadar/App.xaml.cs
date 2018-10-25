@@ -37,6 +37,13 @@ namespace FoodRadar
             };
             App.Database.SaveRestaurant(res);
 
+            var meal1 = new Meal()
+            {
+                name = "Schnitzel",
+                restaurantId = App.Database.GetRestaurants().Result.First().Id,
+            };
+            App.Database.SaveMealAsync(meal1);
+
             var cust1 = new Customer()
             {
                 email = "a",
@@ -55,12 +62,7 @@ namespace FoodRadar
             };
             App.Database.SaveCustomerAsync(cust2);
 
-            var meal1 = new Meal()
-            {
-                name = "Schnitzel",
-                restaurantId = App.Database.GetRestaurants().Result.First().Id,
-            };
-            App.Database.SaveMealAsync(meal1);
+            
 
             int mealId = App.Database.getMeal().Result.First().Id;
             int cust1ID = App.Database.getPassword("a").Id;

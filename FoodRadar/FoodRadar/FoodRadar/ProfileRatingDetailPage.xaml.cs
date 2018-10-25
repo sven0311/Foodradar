@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FoodRadar.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static FoodRadar.ProfileRatingsPage;
 
 namespace FoodRadar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileRatingDetailPage : ContentPage
     {
-
-        public ProfileRatingDetailPage(ListIt listIt)
+        public ProfileRatingDetailPage(ProfileRatingViewModel listIt)
         {
             InitializeComponent();
             buildPage(listIt);
@@ -25,7 +25,7 @@ namespace FoodRadar
             await Navigation.PopModalAsync();
         }
 
-        private void buildPage(ListIt listIt)
+        private void buildPage(ProfileRatingViewModel listIt)
         {
             var restaurant = new Label
             {
