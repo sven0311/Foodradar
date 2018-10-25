@@ -37,13 +37,21 @@ namespace FoodRadar
         private async void setPins()
         {
 
+
+
+            //MyMap.MoveToRegion(
+            //    MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), new Distance(500)));
             MyMap.MoveToRegion(
-                MapSpan.FromCenterAndRadius(new Position(userPos.Latitude, userPos.Longitude), new Distance(500)));
+
+                MapSpan.FromCenterAndRadius(new Position(-27.482276, 153.021552), new Distance(500)));
 
             var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
             {
-                Latitude = userPos.Longitude,
-                Longitude = userPos.Latitude
+                //Latitude = position.Longitude,
+                //Longitude = position.Latitude
+                Latitude = -27.482276,
+                Longitude = 153.021552
+
             };
 
             setPinsOnMap(App.Database.GetRestaurants().Result, pos2);
