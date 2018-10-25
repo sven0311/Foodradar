@@ -35,7 +35,7 @@ namespace FoodRadar.ViewModels
 
             Button_Clicked = new Command(() =>
             {
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new MainPage();
                 PageNavigationManager.Instance.Navigation = Application.Current.MainPage.Navigation;
             });
 
