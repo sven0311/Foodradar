@@ -24,7 +24,9 @@ namespace PageNavSingleton
         public INavigation Navigation
         {
             set { navigation = value; }
-        }        public void showSignUpPage()
+        }
+
+        public void showSignUpPage()
         {
             navigation.PushAsync(new SignUpPage());
         }
