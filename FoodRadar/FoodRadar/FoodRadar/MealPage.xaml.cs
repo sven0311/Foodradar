@@ -23,10 +23,11 @@ namespace FoodRadar
 		{
 			InitializeComponent ();
             this.meal = meal;
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
             Restaurant_clicked = new Command(() =>
             {
-                navManager.popModalAsync();
+                //navManager.popModalAsync();
                 navManager.showRestaurantPage(new RestaurantListView(App.Database.GetRestaurantById(meal.restaurantId)));
                 
             });
