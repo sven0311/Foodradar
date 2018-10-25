@@ -13,15 +13,15 @@ using FoodRadar.Database.DatabaseModels;
 
 namespace FoodRadar
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MapPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MapPage : ContentPage
+    {
         public MapPage()
-		{
+        {
             InitializeComponent();
             setPins();
         }
-        
+
         private async void setPins()
         {
             var locator = CrossGeolocator.Current;
@@ -53,7 +53,7 @@ namespace FoodRadar
                     Latitude = r.lat,
                     Longitude = r.lon
                 };
-               
+
 
                 var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(pos1, pos2);
 
@@ -69,7 +69,7 @@ namespace FoodRadar
                     Address = r.address
                 };
                 MyMap.Pins.Add(pin);
-                
+
             }
         }
 

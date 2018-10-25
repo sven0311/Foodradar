@@ -17,17 +17,25 @@ namespace FoodRadar.ViewModels
         public SearchViewModel()
         {
             Search_Clicked = new Command(() => Search_Button());
+            setLocation();
+            
         }
 
-        public async void Search_Button()
+        public async void setLocation()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
 
             var position = await locator.GetPositionAsync();
-
             userPos.Latitude = position.Latitude;
             userPos.Longitude = position.Longitude;
+        }
+
+        public async void Search_Button()
+        {
+            
+
+            
 
             navManager.showMealSearchResultsPage(App.Database.SearchMeals(searchString, userPos: userPos, distanceFilter: distance, priceFilter: price));
         }
