@@ -558,14 +558,15 @@ for (int i = 0; i< Cuisines.Count; i++)
 
 for(int j = 0; j< 5; j++)
 {
-
+                    for(int k = 0; k < 5; k++)
+                    {
                     Meal meal = new Meal
                     {
                         name = MealName[i * 5 + j],
 
                         cuisineId = GetCuisineId(Cuisines[i]),
 
-                        restaurantId = GetRestaurantId(RestaurantName[(i * 5) + j]),
+                        restaurantId = GetRestaurantId(RestaurantName[(i * 5) + k]),
 
                         price = rnd.Next(10, 51),
 
@@ -573,6 +574,8 @@ for(int j = 0; j< 5; j++)
 
                     };
                     SaveItemAsync(meal);
+
+                    }
   } 
 }
 
