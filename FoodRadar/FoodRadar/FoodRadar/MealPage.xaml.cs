@@ -37,7 +37,7 @@ namespace FoodRadar
             Rate_clicked = new Command(() =>
             {
                 //todo
-                //navManager.showAddReviewPage(App.Database.getMealById(meal.id));
+                navManager.showAddReviewPage(App.Database.getMealById(meal.id));
             });
 
             constructPage();

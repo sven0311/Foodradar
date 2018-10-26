@@ -46,6 +46,7 @@ namespace PageNavSingleton
         }
 
 
+
         public void popPageAsync()
         {
             navigation.PopAsync();
@@ -85,7 +86,10 @@ namespace PageNavSingleton
 
         public void showAddReviewPage(Meal meal)
         {
-            navigation.PushAsync(new AddReviewPage(meal));
+            m = meal;
+            navigation.PushModalAsync(new AddReviewPage2());
         }
+
+        public Meal m {get; set; }
     }
 }

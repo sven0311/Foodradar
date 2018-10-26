@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using FoodRadar.Database.DatabaseModels;
+using PageNavSingleton;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,7 @@ namespace FoodRadar.ViewModels
 {
     public class AddReviewViewModel : ViewModelBase
     {
+        string RestaurantName;
         public Meal m { get; set; }
         private int rating = 0;
         public Command Button_Rate { protected set; get; }
@@ -17,10 +19,13 @@ namespace FoodRadar.ViewModels
         public Command Button_star3 { protected set; get; }
         public Command Button_star4 { protected set; get; }
         public Command Button_star5 { protected set; get; }
+        private PageNavigationManager navManager = PageNavigationManager.Instance;
 
 
         public AddReviewViewModel()
         {
+            m = navManager.m;
+            RestaurantName = App.Database.getRestaurantById(m.restaurantId).name;
             Button_Rate = new Command(() =>
             {
                 addRatingToDatabase();
@@ -74,7 +79,16 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return "Restaurant: " + App.Database.getRestaurantById(m.restaurantId).name;
+                String s = "Restaurant: " + RestaurantName;
+                return s;
+            }
+        }
+
+        public String Stars
+        {
+            get
+            {
+                return "Stars: " + rating;
             }
         }
 
@@ -82,7 +96,9 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return "Meal: " + m.name;
+                String s = "Meal: " + m.name;
+
+                return s;
             }
         }
 

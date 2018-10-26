@@ -39,8 +39,8 @@ namespace FoodRadar.ViewModels
         }
 
         public Command Search_Clicked { protected set; get; }
-        public int distance = 100;
-        public int price = 25;
+        public int distance = 2000;
+        public int price = 15;
         public string searchString;
 
         public string SearchString
