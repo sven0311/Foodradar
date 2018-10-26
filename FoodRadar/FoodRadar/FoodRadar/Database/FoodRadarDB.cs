@@ -533,7 +533,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Bruschetta",
 "Margherita Pizza",
 "Pasta Carbonara",
-"Mushroom Risotto",
+"Authentic italian carbonara",
 "Lasagna",
 "Tempura",
 "Udon",
@@ -541,7 +541,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Salmon Maki sushi",
 "Rice and fish",
 "Chicken Tostadas",
-"Yellow Rice",
+"Vegiterian Carbonara",
 "Quesadillas",
 "Salsa and Chips.",
 "Pinto Bean Salsa Salad",
@@ -550,7 +550,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Thai style Fried Noodles",
 "Fried Rice",
 "Green Chicken Curry",
-"Piri piri chicken"
+"Spaghetti Carbonara"
 };
 
 for (int i = 0; i< Cuisines.Count; i++)
