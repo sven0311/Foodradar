@@ -6,9 +6,10 @@ namespace FoodRadar.Views
 {
     public class MealListView
     {
-        public MealListView(string name, int rating, int price, int id)
+        public MealListView(string name, int rating, int price, int restId, int id)
         {
-            this.restaurantId = id;
+            this.id = id;
+            this.restaurantId = restId;
 
             this.name = name;
             string tmpString = "";
@@ -20,6 +21,7 @@ namespace FoodRadar.Views
             this.rating = tmpString;
         }
 
+        public int id { get; set; }
         public int restaurantId { get; set; }
         public string name { get; set; }
         public string rating { get; set; }

@@ -9,7 +9,7 @@ using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using FoodRadar.Database.DatabaseModels;
-
+using FoodRadar.DB;
 
 namespace FoodRadar
 {
@@ -41,9 +41,7 @@ namespace FoodRadar
 
             //MyMap.MoveToRegion(
             //    MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), new Distance(500)));
-            MyMap.MoveToRegion(
-
-                MapSpan.FromCenterAndRadius(new Position(-27.482276, 153.021552), new Distance(500)));
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-27.482276, 153.021552), new Distance(500)));
 
             var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
             {
@@ -72,10 +70,10 @@ namespace FoodRadar
 
 
                 var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(pos1, pos2);
-
+                var dist = FoodRadarDB.CalculateDistance(pos1, pos2);
                 //maybe adjust 1000
-                //if (distance > 1000)
-                //    continue;
+                if (dist > 500)
+                    continue;
 
                 var pin = new Pin
                 {

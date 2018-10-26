@@ -31,7 +31,7 @@
 
 
 
-                <Slider Value="{Binding Distance}"  Maximum="15000" Minimum = "100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+                <Slider Value="{Binding Distance}"  Maximum="10000" Minimum = "100" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
 
 
                 <Grid>
@@ -49,7 +49,7 @@
 
                 </Grid>
 
-                <Slider Value="{Binding Price}"  Maximum="100" Minimum="0" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
+                <Slider Value="{Binding Price}"  Maximum="75" Minimum="0" MinimumTrackColor="#e21f4f" MaximumTrackColor="#e21f4f" Margin="0, 0,0,20"/>
                 <Button Text="Search" FontSize="Medium" BackgroundColor="#e21f4f" TextColor="White" Command="{Binding Search_Clicked}" />
             </StackLayout>
         </ScrollView>

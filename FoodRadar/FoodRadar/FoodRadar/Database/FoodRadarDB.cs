@@ -263,7 +263,7 @@ namespace FoodRadar.DB
                 mealsToRemove = new List<int>();
                 foreach(var m in meals)
                 {
-                    if (m.price < priceFilter) mealsToRemove.Add(m.Id);
+                    if (m.price > priceFilter) mealsToRemove.Add(m.Id);
                 }
                 foreach(var i in mealsToRemove)
                 {
@@ -444,8 +444,8 @@ namespace FoodRadar.DB
 
             ///pupulate database
 
-            double orig1 = -27.4707 - 0.015;
-            double orig2 = 153.024 - 0.015;
+            double orig1 = -27.507323;
+            double orig2 = 152.988710;
             double bla;
             double bla2;
             Random rnd = new Random();
@@ -453,8 +453,8 @@ namespace FoodRadar.DB
 
             for (int i = 0; i < RestaurantName.Count; i++)
             {
-                int rnd1 = rnd.Next(1, 150);
-                int rnd2 = rnd.Next(1, 150);
+                int rnd1 = rnd.Next(1, 600);
+                int rnd2 = rnd.Next(1, 600);
                 bla = orig1 + (0.0001 * rnd1);
 
                 bla2 = orig2 + (0.0001 * rnd2);
@@ -540,7 +540,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Bruschetta",
 "Margherita Pizza",
 "Pasta Carbonara",
-"Mushroom Risotto",
+"Authentic italian carbonara",
 "Lasagna",
 "Tempura",
 "Udon",
@@ -548,7 +548,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Salmon Maki sushi",
 "Rice and fish",
 "Chicken Tostadas",
-"Yellow Rice",
+"Vegiterian Carbonara",
 "Quesadillas",
 "Salsa and Chips.",
 "Pinto Bean Salsa Salad",
@@ -557,7 +557,7 @@ for (int i = 0; i< Cuisines.Count; i++)
 "Thai style Fried Noodles",
 "Fried Rice",
 "Green Chicken Curry",
-"Piri piri chicken"
+"Spaghetti Carbonara"
 };
 
 for (int i = 0; i< Cuisines.Count; i++)

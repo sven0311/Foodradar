@@ -41,7 +41,7 @@ namespace FoodRadar
             List<MealListView> returnList = new List<MealListView>();
             foreach (var r in meals)
             {
-                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId));
+                returnList.Add(new MealListView(r.name, r.rating, r.price, r.restaurantId, r.Id));
             }
 
             return returnList;
@@ -59,7 +59,7 @@ namespace FoodRadar
             listView.ItemTapped += async (sender, e) => {
                 MealListView m = (MealListView)e.Item;
                 Restaurant r = App.Database.GetRestaurantById(m.restaurantId);
-                RestaurantListView  rest = new RestaurantListView(r);
+                RestaurantListView  rest = new RestaurantListView(r.name, r.rating, r.price, r.Id);
 
                 //navManager.showRestaurantPage(rest);
                 navManager.showMealPage(m);
