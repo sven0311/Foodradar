@@ -14,6 +14,8 @@ namespace FoodRadar.ViewModels
 {
     public class ProfilePrefViewModel : ViewModelBase
     {
+
+        public PageNavigationManager navManager = PageNavigationManager.Instance;
         public string oldPassword;
         public string newPassword;
         public string confNewPassword;
@@ -104,7 +106,12 @@ namespace FoodRadar.ViewModels
             if (result)
             {
                 LoginViewModel.loggedIn = false;
+                
                 await App.Database.DeleteCustomerAsync(LoginViewModel.customer);
+                LoginViewModel.customer = null;
+                UserDialogs.Instance.Alert("", "Account Deleted!", "Ok");
+                navManager.showMainPageAfterLoginPage();
+                //Application.Current.MainPage = new LogInpage(false);
             }
         }
         public async void ChangePw()
@@ -130,8 +137,13 @@ namespace FoodRadar.ViewModels
 
         //        }
 
+        const string pwRegex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$";
         async void test()
         {
+            if (confNewPassword == null || newPassword == null || oldPassword == null || confNewPassword.Equals("") || newPassword.Equals("") || oldPassword.Equals(""))
+            {
+                UserDialogs.Instance.Alert("Fields can not be blank");
+            }
             if (this.ConfNewPassword != this.NewPassword)
             {
                 UserDialogs.Instance.Alert("", "Password Confirmation Fail", "Try again");
@@ -141,12 +153,17 @@ namespace FoodRadar.ViewModels
             {
                 UserDialogs.Instance.Alert("", "Password not valid, please chose another password", "Try again");
             }
-
+            else if (!Regex.IsMatch(this.NewPassword, pwRegex))
+            {
+                UserDialogs.Instance.Alert("", "Password not valid, please chose another password", "Try again");
+            }
             else
             {
                 LoginViewModel.customer.password = this.NewPassword;
                 PopupNavigation.Instance.PopAsync(true);
+                UserDialogs.Instance.Alert("", "Password changed!", "Ok");
             }
+        
         }
 
     }

@@ -28,6 +28,7 @@
         </StackLayout.BindingContext>
         <Entry Placeholder="Old Password" PlaceholderColor="#bababa" FontSize="16" Text="{Binding OldPassword}" IsPassword="True" />
         <Entry Placeholder="New Password" PlaceholderColor="#bababa" FontSize="16" Text="{Binding NewPassword}" IsPassword="True" />
+        <Label Text="Must be 5 characters containing at least 1 letter and 1 number" FontSize="10" TextColor="Red"/>
         <Entry Placeholder="Confirm New Password" PlaceholderColor="#bababa" FontSize="16" Text="{Binding ConfNewPassword}" IsPassword="True" />
         <Button BackgroundColor="Red"
                 FontSize="12"

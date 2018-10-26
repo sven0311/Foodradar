@@ -3,16 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FoodRadar.ViewModels"
              x:Class="FoodRadar.ProfilePreferencesPage"
-             Title="Profile Prefrences" Icon="round_person_white_24dp.png"
-             NavigationPage.HasNavigationBar="False">
+             Title="Profile Prefrences" Icon="round_person_white_24dp.png">
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <StackLayout.BindingContext>
                 <local:ProfilePrefViewModel />
             </StackLayout.BindingContext>
-            <Button Image="round_arrow_back_white_24dp.png" Text=" " TextColor="White" Clicked ="Button_Back" CornerRadius="0" BorderWidth="1" BackgroundColor="#e21f4f" BorderColor="#e21f4f">
-
-            </Button>
+            
 
             <!-- This grid positions the persons picture next to their name -->
             <Grid>

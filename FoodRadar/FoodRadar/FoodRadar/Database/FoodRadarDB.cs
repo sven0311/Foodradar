@@ -3,6 +3,7 @@ using Plugin.Geolocator;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -213,6 +214,12 @@ namespace FoodRadar.DB
             return distance;
         }
 
+        public int SortByRatingAscending(Meal m1, Meal m2)
+        {
+
+            return m1.rating.CompareTo(m2.rating);
+        }
+
         // ALL SEARCH FUNCTIONS *************************************
         public List<Meal> SearchMeals(string searchString, Xamarin.Forms.Labs.Services.Geolocation.Position userPos = null,int distanceFilter = 0, int priceFilter = 0)
         {
@@ -264,7 +271,7 @@ namespace FoodRadar.DB
                 }
             }
 
-            return meals;
+            return meals.OrderByDescending(o => o.rating).ToList();
         }
         
         private async Task<Xamarin.Forms.Labs.Services.Geolocation.Position> getUserPos()
