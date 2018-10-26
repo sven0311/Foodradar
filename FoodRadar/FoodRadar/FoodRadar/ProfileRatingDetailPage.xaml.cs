@@ -27,28 +27,28 @@ namespace FoodRadar
             {
                 Text = "Restaurant: " + listIt.restaurantName,
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
-                FontAttributes = FontAttributes.Bold
+                //FontAttributes = FontAttributes.Bold
             };
 
             var meal = new Label
             {
                 Text = "Meal: " + listIt.mealName,
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
-                FontAttributes = FontAttributes.Bold
+                //FontAttributes = FontAttributes.Bold
             };
 
             var rate = new Label
             {
                 Text = "Rating: " + listIt.rating.rate,
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
-                FontAttributes = FontAttributes.Bold
+                //FontAttributes = FontAttributes.Bold
             };
 
             var desc = new Label
             {
                 Text = "Description: " + listIt.rating.desc,
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
-                FontAttributes = FontAttributes.Bold
+                //FontAttributes = FontAttributes.Bold
             };
 
             var delete = new Button()
@@ -61,10 +61,11 @@ namespace FoodRadar
                 await App.Database.DeleteRatingAsync(listIt.rating);
                 await Navigation.PopAsync();
             };
-            
+
             var firstStack = new StackLayout()
             {
                 Children = { restaurant, meal, rate, desc, delete },
+                Margin = new Thickness(20, 15,40,15)
             };
 
             Content = firstStack;
