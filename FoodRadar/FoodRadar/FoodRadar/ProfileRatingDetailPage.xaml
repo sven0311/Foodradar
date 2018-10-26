@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:FoodRadar.ViewModels"
              x:Class="FoodRadar.ProfileRatingDetailPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10, 15">
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

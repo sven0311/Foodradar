@@ -5,11 +5,12 @@
              x:Class="FoodRadar.ProfilePreferencesPage"
              Title="Profile Prefrences" Icon="round_person_white_24dp.png">
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+
+        <StackLayout>
             <StackLayout.BindingContext>
                 <local:ProfilePrefViewModel />
             </StackLayout.BindingContext>
-            
+
 
             <!-- This grid positions the persons picture next to their name -->
             <Grid>
@@ -33,6 +34,8 @@
             <Button Text="Change System Of Mesurements km/mi" Command ="{Binding Button_Messurements}" CornerRadius="0" BorderWidth="1" BackgroundColor="White" BorderColor="#e21f4f" >
 
             </Button>
+
         </StackLayout>
+            
     </ContentPage.Content>
 </ContentPage>

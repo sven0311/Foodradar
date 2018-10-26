@@ -11,7 +11,7 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return FoodRadar.ViewModels.LoginViewModel.customer.email;
+                return "Email: " + FoodRadar.ViewModels.LoginViewModel.customer.email;
             }
         }
         
@@ -19,7 +19,7 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return FoodRadar.ViewModels.LoginViewModel.customer.firstName;
+                return "First Name: " + FoodRadar.ViewModels.LoginViewModel.customer.firstName;
             }
         }
         
@@ -27,7 +27,7 @@ namespace FoodRadar.ViewModels
         {
             get
             {
-                return FoodRadar.ViewModels.LoginViewModel.customer.lastName;
+                return "Last Name: " + FoodRadar.ViewModels.LoginViewModel.customer.lastName;
             }
         }
     }

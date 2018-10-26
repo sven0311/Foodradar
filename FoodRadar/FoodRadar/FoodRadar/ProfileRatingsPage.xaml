@@ -8,7 +8,7 @@
             <StackLayout.BindingContext>
                 <local:ProfileRatingViewModel/>
             </StackLayout.BindingContext>
-            <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Your Ratings"  FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10, 15"/>
             <ListView ItemsSource="{Binding All}"
                       ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
