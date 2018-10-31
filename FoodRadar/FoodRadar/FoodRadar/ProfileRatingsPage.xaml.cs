@@ -12,12 +12,12 @@ using static FoodRadar.ViewModels.ProfileRatingViewModel;
 
 namespace FoodRadar
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ProfileRatingsPage : ContentPage
-	{
-		public ProfileRatingsPage ()
-		{
-			InitializeComponent();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ProfileRatingsPage : ContentPage
+    {
+        public ProfileRatingsPage()
+        {
+            InitializeComponent();
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#e21f4f");
 
         }

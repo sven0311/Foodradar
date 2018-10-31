@@ -9,33 +9,47 @@ using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using FoodRadar.Database.DatabaseModels;
-
+using FoodRadar.DB;
 
 namespace FoodRadar
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MapPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MapPage : ContentPage
+    {
+
+        Xamarin.Forms.Labs.Services.Geolocation.Position userPos = new Xamarin.Forms.Labs.Services.Geolocation.Position();
         public MapPage()
-		{
+        {
             InitializeComponent();
             setPins();
         }
-        
-        private async void setPins()
+
+        public async void setLocation()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 20;
 
             var position = await locator.GetPositionAsync();
+            userPos.Latitude = position.Latitude;
+            userPos.Longitude = position.Longitude;
+        }
 
-            MyMap.MoveToRegion(
-                MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), new Distance(500)));
+        private async void setPins()
+        {
+
+
+
+            //MyMap.MoveToRegion(
+            //    MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), new Distance(500)));
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-27.482276, 153.021552), new Distance(500)));
 
             var pos2 = new Xamarin.Forms.Labs.Services.Geolocation.Position()
             {
-                Latitude = position.Longitude,
-                Longitude = position.Latitude
+                //Latitude = position.Longitude,
+                //Longitude = position.Latitude
+                Latitude = -27.482276,
+                Longitude = 153.021552
+
             };
 
             setPinsOnMap(App.Database.GetRestaurants().Result, pos2);
@@ -53,13 +67,13 @@ namespace FoodRadar
                     Latitude = r.lat,
                     Longitude = r.lon
                 };
-               
+
 
                 var distance = Xamarin.Forms.Labs.Services.Geolocation.PositionExtensions.DistanceFrom(pos1, pos2);
-
+                var dist = FoodRadarDB.CalculateDistance(pos1, pos2);
                 //maybe adjust 1000
-                //if (distance > 1000)
-                //    continue;
+                if (dist > 500)
+                    continue;
 
                 var pin = new Pin
                 {
@@ -69,7 +83,7 @@ namespace FoodRadar
                     Address = r.address
                 };
                 MyMap.Pins.Add(pin);
-                
+
             }
         }
 

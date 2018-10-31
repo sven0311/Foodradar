@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.168" />
     <PackageReference Include="Scorchio.NinjaCoder.Xamarin.Forms.Labs" Version="2.0.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
@@ -33,23 +34,48 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AddReviewPage2.xaml.cs">
+      <DependentUpon>AddReviewPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Update="MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="MealSearchResults.xaml.cs">
+      <DependentUpon>MealSearchResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RestaurantSearchResults.xaml.cs">
+      <DependentUpon>RestaurantSearchResults.xaml</DependentUpon>
+    </Compile>
     <Compile Update="SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
-	</Compile>
+	  </Compile>
     <Compile Update="ProfilePreferencesPage.xaml.cs">
       <DependentUpon>ProfilePreferencesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AddReviewPage.xaml">
+
+    <EmbeddedResource Update="AddReviewPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+
+    <EmbeddedResource Update="MealPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MealSearchResults.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RestaurantPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RestaurantSearchResults.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="MapPage.xaml">
-
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LogInpage.xaml">
