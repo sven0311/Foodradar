@@ -76,7 +76,7 @@ namespace FoodRadar
 
 
             var listView = new ListView();
-            List<MealListView> restaurants = listifyMeals(App.Database.GetMeals().Result);
+            List<MealListView> restaurants = listifyMeals(App.Database.GetMealsByResturant(restaurant.id).Result);
             listView.ItemsSource = restaurants;
             listView.ItemTemplate = new DataTemplate(typeof(RestaurantListCell));
 

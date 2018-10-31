@@ -21,7 +21,7 @@
                 <Button Text="4" Command="{Binding Button_star4}"/>
                 <Button Text="5" Command="{Binding Button_star5}"/>
             </StackLayout>
-            <Label Text="{Binding Stars}"/>
+            <!--<Label Text="{Binding Stars}"/>-->
             <Entry Placeholder="Optional Description" Text="{Binding Desc}"/>
             <Button Text="Rate" Command="{Binding Button_Rate}"/>
         </StackLayout>

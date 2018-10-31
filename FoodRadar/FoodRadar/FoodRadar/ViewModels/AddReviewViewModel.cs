@@ -71,6 +71,7 @@ namespace FoodRadar.ViewModels
                         rate = rating
                     };
                     App.Database.SaveRating(ra);
+                    navManager.popPageAsync();
                 }
             }
         }
@@ -89,6 +90,14 @@ namespace FoodRadar.ViewModels
             get
             {
                 return "Stars: " + rating;
+            }
+            set
+            {
+                if (!value.Equals("Stars: " + rating))
+                {
+                    Stars = "Stars: " + rating;
+                    OnPropertyChanged();
+                }
             }
         }
 

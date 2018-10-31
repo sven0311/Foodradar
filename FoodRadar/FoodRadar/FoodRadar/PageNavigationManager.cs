@@ -87,7 +87,7 @@ namespace PageNavSingleton
         public void showAddReviewPage(Meal meal)
         {
             m = meal;
-            navigation.PushModalAsync(new AddReviewPage2());
+            navigation.PushAsync(new AddReviewPage2());
         }
 
         public Meal m {get; set; }
