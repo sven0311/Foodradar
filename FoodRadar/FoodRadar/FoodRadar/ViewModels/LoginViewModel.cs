@@ -65,7 +65,11 @@ namespace FoodRadar.ViewModels
                         {
                             loggedIn = true;
                             customer = cust;
-                            navManager.showMainPageAfterLoginPage();
+                            if (App.LoginStatus == 0 || App.LoginStatus == 1)
+                                navManager.showMainPageAfterLoginPage();
+                            if (App.LoginStatus == 2)
+                                //invokes a bug on the mainPage, since the LoginTab is still there instead of the ProfileTab
+                                navManager.popPageAsync();
                         }
                         else
                         {

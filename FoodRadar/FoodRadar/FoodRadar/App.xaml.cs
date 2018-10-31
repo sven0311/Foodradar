@@ -16,6 +16,8 @@ namespace FoodRadar
     public partial class App : Application
     {
         static FoodRadarDB database;
+        //0=loginOnStartup; 1=LoginOnMainPage; 2=LoginAfterAddReview
+        public static int LoginStatus { get; set; } = 0;
         public App()
         {
             InitializeComponent();

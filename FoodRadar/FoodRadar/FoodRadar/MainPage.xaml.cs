@@ -37,6 +37,13 @@ namespace FoodRadar
             var pages = Children.GetEnumerator();
             pages.MoveNext(); // First page
             pages.MoveNext(); // Second page
+            if (App.LoginStatus == 1)
+            {
+                pages.MoveNext();
+                App.LoginStatus = 0;
+            }
+            if (App.LoginStatus == 0)
+                App.LoginStatus = 1;
             CurrentPage = pages.Current;
         }
     }

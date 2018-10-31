@@ -34,22 +34,28 @@ namespace FoodRadar.ViewModels
             Button_star1 = new Command(() =>
             {
                 rating = 1;
+                Stars = "Stars: " + rating;
             });
-            Button_star1 = new Command(() =>
+            Button_star2 = new Command(() =>
             {
                 rating = 2;
+                Stars = "Stars: " + rating;
+
             });
-            Button_star1 = new Command(() =>
+            Button_star3 = new Command(() =>
             {
                 rating = 3;
+                Stars = "Stars: " + rating;
             });
-            Button_star1 = new Command(() =>
+            Button_star4 = new Command(() =>
             {
                 rating = 4;
+                Stars = "Stars: " + rating;
             });
-            Button_star1 = new Command(() =>
+            Button_star5 = new Command(() =>
             {
                 rating = 5;
+                Stars = "Stars: " + rating;
             });
         }
 
@@ -62,6 +68,8 @@ namespace FoodRadar.ViewModels
                 if (!LoginViewModel.loggedIn)
                 {
                     UserDialogs.Instance.Alert("You can not rate if you are not logged in.", "Login required", "Ok");
+                    App.LoginStatus = 2;
+                    navManager.showLoginPageAfterAddReview();
                 } else {
                     Rating ra = new Rating()
                     {
@@ -85,19 +93,17 @@ namespace FoodRadar.ViewModels
             }
         }
 
+        private String stars = "Stars: ";
         public String Stars
         {
             get
             {
-                return "Stars: " + rating;
+                return stars;
             }
             set
             {
-                if (!value.Equals("Stars: " + rating))
-                {
-                    Stars = "Stars: " + rating;
-                    OnPropertyChanged();
-                }
+                stars = value;
+                OnPropertyChanged();
             }
         }
 

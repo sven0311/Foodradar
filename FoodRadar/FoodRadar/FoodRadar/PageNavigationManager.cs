@@ -91,5 +91,10 @@ namespace PageNavSingleton
         }
 
         public Meal m {get; set; }
+
+        public void showLoginPageAfterAddReview()
+        {
+            navigation.PushAsync(new LogInpage(true));
+        }
     }
 }

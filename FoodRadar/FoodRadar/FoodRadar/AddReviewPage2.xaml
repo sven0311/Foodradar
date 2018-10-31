@@ -15,13 +15,13 @@
             <Label Text="{Binding MealName}"/>
 
             <StackLayout Orientation="Horizontal">
-                <Button Text="1" Command="{Binding Button_star1}"/>
-                <Button Text="2" Command="{Binding Button_star2}"/>
-                <Button Text="3" Command="{Binding Button_star3}"/>
-                <Button Text="4" Command="{Binding Button_star4}"/>
-                <Button Text="5" Command="{Binding Button_star5}"/>
+                <Button Margin="0,10" Padding="0,10" Text="1" Command="{Binding Button_star1}"/>
+                <Button Margin="0,10" Padding="0,10"  Text="2" Command="{Binding Button_star2}"/>
+                <Button Margin="0,10" Padding="10,0"  Text="3" Command="{Binding Button_star3}"/>
+                <Button Margin="0,10" Text="4" Command="{Binding Button_star4}"/>
+                <Button Margin="0,10" Text="5" Command="{Binding Button_star5}"/>
             </StackLayout>
-            <!--<Label Text="{Binding Stars}"/>-->
+            <Label Text="{Binding Stars}"/>
             <Entry Placeholder="Optional Description" Text="{Binding Desc}"/>
             <Button Text="Rate" Command="{Binding Button_Rate}"/>
         </StackLayout>

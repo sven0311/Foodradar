@@ -6,7 +6,7 @@
              x:Class="FoodRadar.LogInpage"
              BackgroundColor="White"
              Title="Log In" Icon="round_person_white_24dp.png"
-             NavigationPage.HasNavigationBar = "False">
+             >
 
     <ContentPage.Content>
         <ScrollView>

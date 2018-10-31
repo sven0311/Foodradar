@@ -25,6 +25,12 @@ namespace FoodRadar
             {
                 skip.IsVisible = false;
             }
+            if (App.LoginStatus == 0 || App.LoginStatus == 1)
+            {
+                NavigationPage.SetHasNavigationBar(this, false);
+            }
+            if (App.LoginStatus == 2)
+                NavigationPage.SetHasNavigationBar(this, true);
         }
     }
 

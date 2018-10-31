@@ -14,7 +14,6 @@ namespace FoodRadar
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddReviewPage2 : ContentPage
 	{
-        Meal meal;
 		public AddReviewPage2 ()
 		{
 			InitializeComponent ();
