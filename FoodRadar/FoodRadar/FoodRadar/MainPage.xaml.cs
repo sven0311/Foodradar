@@ -11,6 +11,8 @@ namespace FoodRadar
 {
     public partial class MainPage : TabbedPage
     {
+
+        NavigationPage navigationPage;
         public MainPage()
         {
             InitializeComponent();
@@ -22,17 +24,20 @@ namespace FoodRadar
             Children.Add(new MapPage());
             if (LoginViewModel.loggedIn)
             {
-                var navigationPage = new NavigationPage(new Profile());
+                navigationPage = new NavigationPage(new Profile());
                 navigationPage.Icon = "round_person_white_24dp.png";
                 navigationPage.Title = "Profile";
 
                 navigationPage.BarBackgroundColor = Color.FromHex("#e21f4f");
                 Children.Add(navigationPage);
+
             }
             else
             {
+                //navigationPage =  new NavigationPage(new LogInpage(true));
                 Children.Add(new LogInpage(true));
             }
+
 
             var pages = Children.GetEnumerator();
             pages.MoveNext(); // First page
@@ -45,6 +50,17 @@ namespace FoodRadar
             if (App.LoginStatus == 0)
                 App.LoginStatus = 1;
             CurrentPage = pages.Current;
+        }
+
+        public void replaceLoginTabWithProfileTab()
+        {
+            Children.Remove(navigationPage);
+            navigationPage = new NavigationPage(new Profile());
+            navigationPage.Icon = "round_person_white_24dp.png";
+            navigationPage.Title = "Profile";
+
+            navigationPage.BarBackgroundColor = Color.FromHex("#e21f4f");
+            Children.Add(navigationPage);
         }
     }
 

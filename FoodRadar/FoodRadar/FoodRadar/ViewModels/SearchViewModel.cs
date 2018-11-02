@@ -35,6 +35,10 @@ namespace FoodRadar.ViewModels
 
         public async void Search_Button()
         {
+            if (searchString == null)
+            {
+                searchString = "";
+            }
             navManager.showMealSearchResultsPage(App.Database.SearchMeals(searchString, userPos: userPos, distanceFilter: distance, priceFilter: price));
         }
 
